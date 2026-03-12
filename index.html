@@ -124,12 +124,26 @@
   }
   .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
   /* Hero image strip */
+  /* Hero banner — ใต้ปุ่ม */
+  .hero-banner {
+    width: 100%; max-width: 860px; margin: 0 auto;
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    border: 3px solid rgba(255,208,0,0.4);
+    animation: fadeUp 0.8s 0.5s both;
+  }
+  .hero-banner img {
+    width: 100%; display: block;
+    transition: transform 0.4s;
+  }
+  .hero-banner:hover img { transform: scale(1.02); }
+
   .hero-images {
     display: flex; gap: 12px; justify-content: center; flex-wrap: nowrap;
     max-width: 900px; overflow: hidden;
   }
   .hero-img-wrap {
-    width: 180px; height: 220px; border-radius: 16px; overflow: hidden;
+    width: 180px; height: 200px; border-radius: 16px; overflow: hidden;
     border: 3px solid rgba(255,208,0,0.3); flex-shrink: 0;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     transition: transform 0.3s;
@@ -250,11 +264,11 @@
     font-size: 0.8rem; font-weight: 900;
   }
   .arena-char {
-    width: 100%; height: 200px; overflow: hidden;
+    width: 100%; height: 220px; overflow: hidden;
     background: linear-gradient(135deg, #e8f7ef, #d0f0e0);
   }
   .arena-char img {
-    width: 100%; height: 100%; object-fit: cover; object-position: center bottom;
+    width: 100%; height: 100%; object-fit: cover; object-position: center center;
     transition: transform 0.35s;
   }
   .arena-card:hover .arena-char img { transform: scale(1.08); }
@@ -413,7 +427,7 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .story-inner, .map-inner, .schedule-grid { grid-template-columns: 1fr; }
-    .hero-images { display: none; }
+  .hero-images { display: none; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-item.tall { grid-row: span 1; }
     .gallery-item.wide { grid-column: span 2; }
@@ -464,13 +478,9 @@
     <a href="#pricing" class="btn-secondary">ดูแพ็กเกจทั้งหมด ↓</a>
   </div>
 
-  <!-- Photo strip -->
-  <div class="hero-images">
-    <div class="hero-img-wrap float" style="animation-delay:0s"><img src="photo_race1.jpg" alt="เด็กแข่งจักรยาน"></div>
-    <div class="hero-img-wrap float" style="animation-delay:0.4s"><img src="gallery_01.jpg" alt="บรรยากาศงาน"></div>
-    <div class="hero-img-wrap float" style="animation-delay:0.8s"><img src="photo_race4.jpg" alt="เด็กในสนาม"></div>
-    <div class="hero-img-wrap float" style="animation-delay:1.2s"><img src="photo_ride1.jpg" alt="เด็กปั่นจักรยาน"></div>
-    <div class="hero-img-wrap float" style="animation-delay:1.6s"><img src="photo_race2.jpg" alt="เด็กรับรางวัล"></div>
+  <!-- Hero banner — ตัวละคร 7 ตัว -->
+  <div class="hero-banner">
+    <img src="slide_title.jpg" alt="Tooniverse Balance Bike Racing — ตัวละคร 7 ตัว">
   </div>
 </section>
 
@@ -571,7 +581,7 @@
       </div>
     </div>
     <div class="story-img reveal">
-      <img src="slide_title.jpg" alt="Tooniverse — ตัวละคร 7 ตัว" style="width:100%;height:380px;object-fit:cover;object-position:center center;">
+      <img src="event_mascot.jpg" alt="บรรยากาศงาน Tooniverse" style="width:100%;height:380px;object-fit:cover;object-position:center top;">
     </div>
   </div>
 </div>
