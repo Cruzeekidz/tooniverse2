@@ -64,7 +64,9 @@
     position: absolute; inset: 0;
     background: radial-gradient(ellipse at 70% 30%, rgba(255,208,0,0.08) 0%, transparent 60%),
                 radial-gradient(ellipse at 20% 80%, rgba(255,107,53,0.06) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
   }
+  .hero > * { position: relative; z-index: 1; }
   .hero-badge {
     background: var(--yellow); color: var(--green-dark);
     font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.85rem;
@@ -222,6 +224,78 @@
   }
   .btn-price.outline:hover { border-color: var(--yellow); color: var(--yellow); background: transparent; }
 
+
+  /* ─── PACKAGE BENEFITS ─── */
+  .benefits-section { background: var(--cream); padding: 60px 0 40px; }
+  .benefits-section .section-tag { background: var(--green-mid); }
+  .benefits-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;
+  }
+  .benefit-col {
+    background: white; border-radius: 20px; padding: 24px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border: 2px solid #e0f0e8;
+    display: flex; flex-direction: column;
+  }
+  .benefit-col.featured-col {
+    border-color: var(--yellow); box-shadow: 0 8px 32px rgba(255,208,0,0.2);
+    transform: translateY(-6px);
+  }
+  .benefit-col-header {
+    text-align: center; padding-bottom: 16px; margin-bottom: 16px;
+    border-bottom: 1px dashed #dceee4;
+  }
+  .benefit-col-icon { font-size: 2rem; margin-bottom: 6px; }
+  .benefit-col-name {
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1rem;
+    color: var(--green-dark);
+  }
+  .benefit-col-price { font-size: 0.85rem; color: var(--text-gray); margin-top: 2px; }
+  .benefit-list { list-style: none; flex: 1; }
+  .benefit-list li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 0.88rem; color: var(--text-dark); padding: 5px 0;
+    border-bottom: 1px solid #f0f8f3; line-height: 1.4;
+  }
+  .benefit-list li:last-child { border: none; }
+  .benefit-list .bchk { color: var(--green-mid); font-weight: 700; flex-shrink: 0; }
+  .benefit-list .bstar { color: var(--yellow); font-weight: 700; flex-shrink: 0; }
+  .benefit-list .bno { color: #ccc; flex-shrink: 0; }
+  .benefit-highlight {
+    margin-top: 32px; background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
+    border-radius: 20px; padding: 28px 32px;
+    display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+    box-shadow: 0 8px 32px rgba(26,77,46,0.2);
+  }
+  .benefit-highlight-icon { font-size: 3rem; flex-shrink: 0; }
+  .benefit-highlight-text { flex: 1; min-width: 200px; }
+  .benefit-highlight-text h3 {
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.2rem;
+    color: var(--yellow); margin-bottom: 6px;
+  }
+  .benefit-highlight-text p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; }
+  .benefit-early-badge {
+    background: var(--orange); color: white;
+    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.8rem;
+    padding: 6px 14px; border-radius: 20px; display: inline-block; margin-top: 8px;
+  }
+
+  /* ─── MID-PAGE CTA STRIP ─── */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--orange-dark), var(--orange));
+    padding: 36px 20px; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: clamp(1.2rem, 3vw, 1.7rem);
+    color: white; margin-bottom: 8px;
+  }
+  .cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 20px; font-size: 0.95rem; }
+
+  @media (max-width: 768px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .benefit-col.featured-col { transform: none; }
+    .benefit-highlight { gap: 16px; padding: 20px; }
+  }
   /* ─── STORY ─── */
   .story-section { background: var(--cream); }
   .story-inner {
@@ -453,11 +527,11 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
-  <div class="hero-badge">🌟 EARLY BIRD ถึง 15 มีนาคมนี้เท่านั้น!</div>
+  <div class="hero-badge" id="hero-badge">🌟 EARLY BIRD ถึง 17 มีนาคมนี้เท่านั้น!</div>
   <h1 class="fade-up">ลูกน้อยคือ<span>องครักษ์</span><br>ฝ่า 7 ด่าน ปกป้องเจี๊ยบ!</h1>
   <p class="hero-sub">Tooniverse Balance Bike Adventure × Out of the Nest</p>
   <p class="hero-detail">
-    <span>📍 The Promenade รามอินทรา • ชั้น 1</span>
+    <a href="https://maps.app.goo.gl/VoqzZcxUBTdogVKM9" target="_blank" style="color:var(--yellow-light);text-decoration:none;">📍 The Promenade รามอินทรา • ชั้น 1 🗺️</a>
     <span>📅 18–22 มีนาคม 2569</span>
     <span>🏆 แข่งขัน 21–22 มีนาคม</span>
   </p>
@@ -474,7 +548,7 @@
   </div>
 
   <div class="hero-btns">
-    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank">🎟️ สมัครรับ Early Bird</a>
+    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" id="btn-hero-register">🎟️ สมัครรับ Early Bird</a>
     <a href="#pricing" class="btn-secondary">ดูแพ็กเกจทั้งหมด ↓</a>
   </div>
 
@@ -489,7 +563,7 @@
 <div class="container">
   <div style="text-align:center;margin-bottom:8px"><span class="section-tag">💰 แพ็กเกจ & ราคา</span></div>
   <h2 class="section-title" style="color:white;text-align:center">เลือกแพ็กเกจที่ใช่สำหรับลูก</h2>
-  <p class="section-subtitle" style="text-align:center">Early Bird ราคาพิเศษถึง <strong style="color:var(--yellow)">15 มีนาคม 2569</strong> เท่านั้น — หลังจากนั้นปรับราคาปกติทันที</p>
+  <p class="section-subtitle" id="pricing-subtitle" style="text-align:center">Early Bird ราคาพิเศษถึง <strong style="color:var(--yellow)">17 มีนาคม 2569</strong> เท่านั้น — หลังจากนั้นปรับราคาปกติทันที</p>
 
   <div class="pricing-grid reveal">
     <!-- Walk-in -->
@@ -504,7 +578,7 @@
       <ul class="price-features">
         <li><span class="chk">✓</span> ขี่จักรยานวนสนาม + ทำภารกิจย่อ 3 ด่าน</li>
         <li><span class="chk">✓</span> รอบละ 15 นาที • ซื้อเพิ่มได้เรื่อยๆ ไม่จำกัดรอบ</li>
-        <li><span class="chk">✓</span> 🏅 เหรียญ "องครักษ์ฝึกหัด" กลับบ้าน</li>
+        <li><span class="chk">✓</span> 🏅 เหรียญผู้พิชิต "องครักษ์" กลับบ้าน</li>
         <li><span class="chk">✓</span> เล่นได้ทุกวัน 18–22 มีนาคม</li>
         <li><span class="chk" style="color:#666">–</span> <span style="opacity:0.5">ไม่รวมการแข่งขัน</span></li>
       </ul>
@@ -516,14 +590,14 @@
       <div class="price-icon">⭐</div>
       <div class="price-name">Starter Pack</div>
       <div class="price-amount-wrap">
-        <span class="price-early">990</span>
-        <span class="price-normal">1,190 บาท</span>
+        <span class="price-early" id="starter-eb-price">990</span>
+        <span class="price-normal" id="starter-normal-price">1,190 บาท</span>
       </div>
-      <div class="price-deadline">🔥 Early Bird ถึง 15 มี.ค. | ราคาปกติ 1,190 บาท</div>
+      <div class="price-deadline" id="starter-deadline">🔥 Early Bird ถึง 17 มี.ค. | ราคาปกติ 1,190 บาท</div>
       <ul class="price-features">
-        <li><span class="chk">✓</span> ลงแข่งขัน 6 รุ่นอายุ (Little / Junior / Family)</li>
+        <li><span class="chk">✓</span> ลงแข่งขัน 5 รุ่นอายุ (Little / Junior Chicks)</li>
         <li><span class="chk">✓</span> ฝ่า 7 ด่าน Mission Arena ครบ</li>
-        <li><span class="chk">✓</span> โล่ + เหรียญรางวัลทุกคน</li>
+        <li><span class="chk">✓</span> 🏅 เหรียญผู้พิชิตทุกคน + 🏆 โล่อันดับ 1–3</li>
         <li><span class="chk">✓</span> ถ่ายรูปกับ Mascot</li>
         <li><span class="chk">✓</span> เล่นสนามได้ตลอด 5 วัน</li>
         <li><span class="chk" style="color:#888">+</span> <span style="opacity:0.8">Pre-order รูปได้ 289 บาท</span></li>
@@ -537,15 +611,15 @@
       <div class="price-icon">🏆</div>
       <div class="price-name">Experience Pack</div>
       <div class="price-amount-wrap">
-        <span class="price-early">1,450</span>
-        <span class="price-normal">1,590 บาท</span>
+        <span class="price-early" id="exp-eb-price">1,450</span>
+        <span class="price-normal" id="exp-normal-price">1,590 บาท</span>
       </div>
-      <div class="price-deadline">🔥 Early Bird ถึง 15 มี.ค. | ราคาปกติ 1,590 บาท</div>
+      <div class="price-deadline" id="exp-deadline">🔥 Early Bird ถึง 17 มี.ค. | ราคาปกติ 1,590 บาท</div>
       <ul class="price-features">
         <li><span class="chk">✓</span> ทุกอย่างใน Starter Pack</li>
         <li><span class="chk">✓</span> 👕 <strong style="color:var(--yellow)">ชุดแข่ง Tooniverse Limited Edition</strong></li>
         <li><span class="chk">✓</span> 📸 <strong style="color:var(--yellow)">ภาพถ่ายมืออาชีพตลอดวัน</strong> (รวมแล้ว!)</li>
-        <li><span class="chk">✓</span> โล่ + เหรียญรางวัลทุกคน</li>
+        <li><span class="chk">✓</span> 🏅 เหรียญผู้พิชิตทุกคน + 🏆 โล่อันดับ 1–3</li>
         <li><span class="chk">✓</span> สิทธิ์ทุกอย่างครบในแพ็กเดียว</li>
         <li><span class="chk">✓</span> เล่นสนามได้ตลอด 5 วัน</li>
       </ul>
@@ -557,6 +631,86 @@
     💡 สมาชิกเก่า: ใส่เบอร์โทรเดิม ระบบดึงข้อมูลให้อัตโนมัติ ไม่ต้องกรอกซ้ำ ✅
     | อยากแข่งหลังจาก Walk-in → Upgrade ได้หน้างานเลย!
   </p>
+</div>
+</section>
+
+
+<!-- ═══ PACKAGE BENEFITS ═══ -->
+<section class="benefits-section">
+<div class="container">
+  <div style="text-align:center;margin-bottom:8px"><span class="section-tag">🎁 สิ่งที่ลูกได้รับ</span></div>
+  <h2 class="section-title" style="text-align:center">กลับบ้านพร้อมอะไรบ้าง?</h2>
+  <p class="section-subtitle" style="text-align:center">ทุกแพ็กเกจมีของที่ระลึกกลับบ้าน — Experience Pack มาพร้อมชุดแข่ง Limited Edition</p>
+
+  <div class="benefits-grid reveal">
+    <!-- Walk-in -->
+    <div class="benefit-col">
+      <div class="benefit-col-header">
+        <div class="benefit-col-icon">🎠</div>
+        <div class="benefit-col-name">Walk-in</div>
+        <div class="benefit-col-price">350 บาท / รอบ</div>
+      </div>
+      <ul class="benefit-list">
+        <li><span class="bchk">✓</span> เล่นสนาม 30 นาที / รอบ</li>
+        <li><span class="bchk">✓</span> 🏅 เหรียญผู้พิชิต "องครักษ์"</li>
+        <li><span class="bchk">✓</span> 📒 Passport ภารกิจ</li>
+        <li><span class="bchk">✓</span> 🌟 สติกเกอร์พิเศษ</li>
+        <li><span class="bchk">✓</span> 🃏 Card Holder ลายพิเศษ 1 ชิ้น</li>
+        <li><span class="bno">–</span> <span style="opacity:0.4">ไม่รวมการแข่งขัน</span></li>
+        <li><span class="bno">–</span> <span style="opacity:0.4">ไม่รวมชุดแข่ง</span></li>
+      </ul>
+    </div>
+
+    <!-- Starter -->
+    <div class="benefit-col">
+      <div class="benefit-col-header">
+        <div class="benefit-col-icon">⭐</div>
+        <div class="benefit-col-name">Starter Pack</div>
+        <div class="benefit-col-price">EB 990 / ปกติ 1,190 บาท</div>
+      </div>
+      <ul class="benefit-list">
+        <li><span class="bchk">✓</span> 🏁 สิทธิ์ลงแข่ง 1 รุ่น</li>
+        <li><span class="bchk">✓</span> 🪧 ป้ายนักแข่ง + เบอร์แข่งขัน</li>
+        <li><span class="bchk">✓</span> 🏅 เหรียญผู้พิชิตทุกคน</li>
+        <li><span class="bchk">✓</span> 🏆 โล่รางวัลอันดับ 1–3</li>
+        <li><span class="bchk">✓</span> 🌟 รางวัลพิเศษประจำรุ่น</li>
+        <li><span class="bchk">✓</span> 📒 Passport + สติกเกอร์</li>
+        <li><span class="bchk">✓</span> 🃏 Card Holder ลายพิเศษ</li>
+        <li><span class="bno">–</span> <span style="opacity:0.4">ไม่รวมชุดแข่ง</span></li>
+      </ul>
+    </div>
+
+    <!-- Experience -->
+    <div class="benefit-col featured-col">
+      <div class="benefit-col-header">
+        <div class="benefit-col-icon">🏆</div>
+        <div class="benefit-col-name">Experience Pack <span style="color:var(--orange);font-size:0.8rem">👑 แนะนำ</span></div>
+        <div class="benefit-col-price">EB 1,450 / ปกติ 1,590 บาท</div>
+      </div>
+      <ul class="benefit-list">
+        <li><span class="bstar">★</span> <strong>👕 ชุดแข่ง Tooniverse Limited Edition</strong></li>
+        <li><span class="bstar">★</span> <strong>📸 ภาพถ่ายมืออาชีพตลอดวัน</strong></li>
+        <li><span class="bchk">✓</span> 🏁 สิทธิ์ลงแข่ง 1 รุ่น</li>
+        <li><span class="bchk">✓</span> 🪧 ป้ายนักแข่ง + เบอร์แข่งขัน</li>
+        <li><span class="bchk">✓</span> 🏅 เหรียญผู้พิชิตทุกคน</li>
+        <li><span class="bchk">✓</span> 🏆 โล่รางวัลอันดับ 1–3</li>
+        <li><span class="bchk">✓</span> 🌟 รางวัลพิเศษประจำรุ่น</li>
+        <li><span class="bchk">✓</span> 📒 Passport + สติกเกอร์</li>
+        <li><span class="bchk">✓</span> 🃏 Card Holder ลายพิเศษ</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Early Bird highlight -->
+  <div class="benefit-highlight reveal" id="eb-benefit-highlight">
+    <div class="benefit-highlight-icon">⏰</div>
+    <div class="benefit-highlight-text">
+      <h3>สิทธิพิเศษ Early Bird — ถึง 17 มีนาคมนี้เท่านั้น!</h3>
+      <p>ป้ายเบอร์นักแข่ง <strong style="color:var(--yellow)">พิมพ์ชื่อลูกสวยงาม</strong> — สมัครหลัง 15 มี.ค. จะได้ป้ายแบบเขียนชื่อธรรมดา ไม่ใช่พิมพ์สวยแบบนี้</p>
+      <span class="benefit-early-badge">🔥 ราคา Early Bird + ป้ายพิมพ์ชื่อ = สมัครตอนนี้เลย!</span>
+    </div>
+    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" style="flex-shrink:0">สมัครก่อนหมด →</a>
+  </div>
 </div>
 </section>
 
@@ -749,6 +903,16 @@
 </div>
 </section>
 
+
+<!-- ═══ MID CTA STRIP ═══ -->
+<div class="cta-strip">
+  <div class="container">
+    <h3 id="mid-cta-title">🏁 สนามรอลูกอยู่ — Early Bird หมด 17 มีนาคมนี้!</h3>
+    <p id="mid-cta-desc">สมัครตอนนี้ยังทันได้ราคาพิเศษ + ป้ายเบอร์พิมพ์ชื่อสวยงาม</p>
+    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" id="mid-cta-btn">🎟️ สมัครรับ Early Bird ตอนนี้</a>
+  </div>
+</div>
+
 <!-- ═══ GALLERY ═══ -->
 <section class="gallery-section">
 <div class="gallery-inner container">
@@ -784,18 +948,25 @@
         <li><span class="time">ทุกรอบ</span><span>รอบละ 15 นาที • 350 บาท</span></li>
         <li><span class="time">ทุกวัน</span><span>🛍️ Exclusive Shop (Cruzee × Out of the Nest)</span></li>
         <li><span class="time">ทุกวัน</span><span>🎨 Glitter Tattoos & Mascot Show</span></li>
-        <li><span class="time">กลับบ้าน</span><span>🏅 เหรียญ "องครักษ์ฝึกหัด" ทุกคน</span></li>
+        <li><span class="time">กลับบ้าน</span><span>🏅 เหรียญผู้พิชิต "องครักษ์" ทุกคน</span></li>
       </ul>
     </div>
     <div class="schedule-card special">
       <div class="schedule-date">21–22 มีนาคม 2569</div>
-      <div class="schedule-title">🏆 วันแข่งขัน (เหมือนกันทั้ง 2 วัน)</div>
+      <div class="schedule-title">🏆 วันแข่งขัน (ตารางเหมือนกันทั้ง 2 วัน)</div>
       <ul class="schedule-list">
-        <li><span class="time">เช้า</span><span>🎭 Mascot Troop & Show สุดน่ารัก</span></li>
-        <li><span class="time">กลางวัน</span><span>🏁 แข่งรอบแรก — Little / Junior / Family</span></li>
-        <li><span class="time">บ่าย</span><span>🏆 รอบชิงชนะเลิศ + มอบโล่รางวัล</span></li>
-        <li><span class="time">ตลอดวัน</span><span>📸 ถ่ายรูปกับ Mascot</span></li>
-        <li><span class="time">เสริม</span><span>ช่วงว่าง = เปิดสนามเล่น Walk-in</span></li>
+        <li><span class="time">10.30–14.00</span><span>📋 ลงทะเบียน (REGISTER)</span></li>
+        <li><span class="time">10.50–11.00</span><span>📸 ถ่ายภาพรวม</span></li>
+        <li><span class="time">11.00–11.30</span><span>🏁 <strong>Junior Chick Racing 5–6 ปี</strong></span></li>
+        <li><span class="time">11.30–12.00</span><span>🏁 <strong>Junior Chick Racing 6–7 ปี</strong></span></li>
+        <li><span class="time">12.00–12.30</span><span>🏁 <strong>Junior Chick Racing Open (≤10 ปี)</strong></span></li>
+        <li><span class="time" style="color:var(--orange)">12.30–12.50</span><span>🏆 <strong style="color:var(--orange)">รับรางวัล Junior</strong></span></li>
+        <li><span class="time">13.00–14.00</span><span>☕ พักเบรค / เปิดสนามซ้อม</span></li>
+        <li><span class="time">14.00–14.40</span><span>🐣 <strong>Little Chick Racing 2–3 ปี</strong></span></li>
+        <li><span class="time">14.40–15.10</span><span>🐣 <strong>Little Chick Racing 3–4 ปี</strong></span></li>
+        <li><span class="time">15.10–16.00</span><span>🐣 <strong>Little Chick Racing 4–5 ปี</strong></span></li>
+        <li><span class="time" style="color:var(--orange)">16.00–16.20</span><span>🏆 <strong style="color:var(--orange)">รับรางวัล Little Chick</strong></span></li>
+        <li><span class="time" style="color:rgba(255,255,255,0.45);font-size:0.75rem">หมายเหตุ</span><span style="font-size:0.78rem;opacity:0.6">เวลาอาจเปลี่ยนแปลง ±20 นาที ขึ้นอยู่กับจำนวนผู้เข้าแข่ง</span></li>
       </ul>
     </div>
   </div>
@@ -810,46 +981,40 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>Little Chicks Racing</strong></td>
+        <td><strong>Little Chick Racing</strong></td>
         <td>2–3 ปี</td>
-        <td><span class="age-badge little">Little Chicks</span></td>
-        <td>+ ผู้ปกครอง 1 ท่าน ลงแข่งด้วยกัน</td>
+        <td><span class="age-badge little">Little Chick</span></td>
+        <td>+ ผู้ปกครอง 1 ท่านลงแข่งด้วยกัน • 14.00–14.40 น.</td>
       </tr>
       <tr>
-        <td><strong>Junior Chicks</strong></td>
+        <td><strong>Little Chick Racing</strong></td>
         <td>3–4 ปี</td>
-        <td><span class="age-badge junior">Junior Chicks</span></td>
-        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+        <td><span class="age-badge little">Little Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 14.40–15.10 น.</td>
       </tr>
       <tr>
-        <td><strong>Junior Chicks</strong></td>
+        <td><strong>Little Chick Racing</strong></td>
         <td>4–5 ปี</td>
-        <td><span class="age-badge junior">Junior Chicks</span></td>
-        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+        <td><span class="age-badge little">Little Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 15.10–16.00 น.</td>
       </tr>
       <tr>
-        <td><strong>Junior Chicks</strong></td>
+        <td><strong>Junior Chick Racing</strong></td>
         <td>5–6 ปี</td>
-        <td><span class="age-badge junior">Junior Chicks</span></td>
-        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+        <td><span class="age-badge junior">Junior Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 11.00–11.30 น.</td>
       </tr>
       <tr>
-        <td><strong>Junior Chicks</strong></td>
+        <td><strong>Junior Chick Racing</strong></td>
         <td>6–7 ปี</td>
-        <td><span class="age-badge junior">Junior Chicks</span></td>
-        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+        <td><span class="age-badge junior">Junior Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 11.30–12.00 น.</td>
       </tr>
       <tr>
-        <td><strong>Open Class</strong></td>
-        <td>Open (ไม่เกิน 10 ปี)</td>
-        <td><span class="age-badge junior">Junior Chicks</span></td>
-        <td>เปิดกว้าง ทุกระดับทักษะ</td>
-      </tr>
-      <tr>
-        <td><strong>Chick Legends</strong></td>
-        <td>ผู้ปกครอง + ลูก</td>
-        <td><span class="age-badge family">Family</span></td>
-        <td>พ่อแม่แข่งพร้อมลูก!</td>
+        <td><strong>Junior Chick Racing Open</strong></td>
+        <td>ไม่เกิน 10 ปี</td>
+        <td><span class="age-badge junior">Junior Chick</span></td>
+        <td>เปิดกว้าง ทุกระดับทักษะ • 12.00–12.30 น.</td>
       </tr>
     </tbody>
   </table>
@@ -871,7 +1036,7 @@
       <div class="map-detail">
         <div class="map-detail-icon">📍</div>
         <div class="map-detail-text">
-          <strong>The Promenade รามอินทรา</strong>
+          <a href="https://maps.app.goo.gl/VoqzZcxUBTdogVKM9" target="_blank" style="font-weight:700;color:var(--green-dark);text-decoration:none;">The Promenade รามอินทรา 🗺️ เปิด Maps</a>
           <span>ลานน้ำพุ ชั้น 1 • พื้นที่ Indoor สบายๆ</span>
         </div>
       </div>
@@ -920,21 +1085,21 @@
         ลูกไม่เคยแข่งมาก่อน — มาได้ไหม?
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">ได้เลยค่ะ! กิจกรรมนี้ออกแบบมาสำหรับเด็กทุกระดับทักษะ ทั้ง Walk-in สำหรับมาเล่นสนุกๆ และแพ็กเกจแข่งขันก็มีรุ่นแยกตามอายุอย่างละเอียด เด็กๆ จะได้แข่งกับคนวัยใกล้เคียงกัน ทุกคนได้รับโล่และเหรียญกลับบ้านแน่นอน 🏅</div>
+      <div class="faq-a">ได้เลยค่ะ! กิจกรรมนี้ออกแบบมาสำหรับเด็กทุกระดับทักษะ รุ่นแยกตามอายุละเอียดมาก เด็กๆ แข่งกับคนวัยใกล้เคียงกัน และ<strong>ทุกคนที่ลงสนามได้รับ 🏅 เหรียญผู้พิชิตกลับบ้านแน่นอน</strong> — เพราะเขาทำภารกิจสำเร็จแล้ว นั่นคือชัยชนะในแบบของตัวเองค่ะ</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         ถ้าแพ้ในรอบแรก ยังได้อะไรบ้าง?
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">ทุกคนที่ลงแข่งได้รับ: โล่รางวัล + เหรียญที่ระลึก + ภาพถ่าย + ประสบการณ์ที่ไม่มีวันลืม และยังมีสิทธิ์เล่นสนามฟรีตลอด 5 วัน นี่ไม่ใช่แค่งานแข่ง — แต่เป็นงานฉลองความกล้าของลูก 💛</div>
+      <div class="faq-a">ยังไม่จบค่ะ! เด็กๆ จะได้<strong>แก้ตัวอีก 1 รอบ</strong> เพื่อทำเวลาให้ดีกว่าเดิม และมีโอกาส<strong>กลับเข้ารอบใหม่</strong>ได้ค่ะ 💪<br><br>และไม่ว่าผลจะเป็นอย่างไร — <strong>🏅 เหรียญผู้พิชิต</strong>รอทุกคนอยู่แน่นอน เพราะแค่กล้าลงสนามก็คือชนะแล้ว<br><br>โล่รางวัลสำหรับอันดับ 1–3 ในรุ่น และมีโล่พิเศษสำหรับรางวัลพิเศษ เช่น น้ำใจนักกีฬา หรือกล้าหาญ ค่ะ</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         ผู้ปกครองลงสนามด้วยได้ไหม?
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">ได้ค่ะ! รุ่น "Chick Legends" (Family Racing) เปิดให้พ่อแม่แข่งพร้อมลูกได้เลย และสำหรับรุ่น Little Chicks (2–3 ปี) ผู้ปกครอง 1 ท่านลงแข่งด้วยกันค่ะ</div>
+      <div class="faq-a">รุ่น Little Chick 2–3 ปี ผู้ปกครอง 1 ท่านลงสนามพร้อมลูกได้ค่ะ — คอยเป็นกำลังใจข้างๆ และประคองเล็กน้อยเพื่อความปลอดภัยได้<br><br>แต่ขอให้<strong>ให้ลูกทำทุกอย่างด้วยตัวเอง</strong> ไม่ดึง ไม่ลาก ไม่หิ้ว และไม่ช่วยลูกผ่านด่านนะคะ 🙏<br><br>นั่นคือโมเมนต์สำคัญที่ลูกจะได้<strong>ค้นพบศักยภาพของตัวเอง</strong> และความภาคภูมิใจนั้นต้องเป็นของเขาคนเดียวค่ะ ✨</div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -972,8 +1137,8 @@
 <section class="cta-section" id="register">
   <div class="container">
     <div style="font-size:3.5rem;margin-bottom:16px">🥚</div>
-    <h2>สมัครตอนนี้ — <span>Early Bird</span><br>ถึง 15 มีนาคมนี้เท่านั้น!</h2>
-    <p>อย่ารอให้หมด! ราคา Early Bird หายแล้วหายเลย</p>
+    <h2 id="final-cta-title">สมัครตอนนี้ — <span>Early Bird</span><br>ถึง 17 มีนาคมนี้เท่านั้น!</h2>
+    <p id="final-cta-desc">อย่ารอให้หมด! ราคา Early Bird หายแล้วหายเลย</p>
 
     <div class="cta-prices">
       <div class="cta-price-badge">
@@ -981,12 +1146,12 @@
         <div class="lbl">Walk-in / รอบ<br>ไม่ต้องสมัครล่วงหน้า</div>
       </div>
       <div class="cta-price-badge" style="border-color:rgba(255,255,255,0.2)">
-        <div class="amt">990</div>
-        <div class="lbl">Starter Pack<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Early Bird (ปกติ 1,190)</span></div>
+        <div class="amt" id="final-starter-amt">990</div>
+        <div class="lbl" id="final-starter-lbl">Starter Pack<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Early Bird (ปกติ 1,190)</span></div>
       </div>
       <div class="cta-price-badge" style="border-color:var(--yellow)">
-        <div class="amt">1,450</div>
-        <div class="lbl" style="color:var(--yellow-light)">Experience Pack 👑<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.5)">รวมเสื้อ+รูป (ปกติ 1,590)</span></div>
+        <div class="amt" id="final-exp-amt">1,450</div>
+        <div class="lbl" style="color:var(--yellow-light)" id="final-exp-lbl">Experience Pack 👑<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.5)">รวมเสื้อ+รูป (ปกติ 1,590)</span></div>
       </div>
     </div>
 
@@ -1004,13 +1169,87 @@
 </footer>
 
 <script>
+// ─── Early Bird Expiry Handler ───
+let ebExpired = false;
+
+function applyExpiredEB() {
+  if (ebExpired) return;
+  ebExpired = true;
+
+  // 1. Countdown box
+  const cbox = document.querySelector('.countdown-box');
+  if (cbox) cbox.innerHTML = '<div style="color:var(--yellow);font-family:Kanit,sans-serif;font-weight:800;font-size:1.2rem">✅ ราคาปกติมีผลแล้ว — ยังสมัครได้!</div>';
+
+  // 2. Hero badge
+  const heroBadge = document.getElementById('hero-badge');
+  if (heroBadge) heroBadge.textContent = '🎉 งาน 18–22 มีนาคม 2569 — สมัครได้เลย!';
+
+  // 3. Hero register button
+  const heroBtn = document.getElementById('btn-hero-register');
+  if (heroBtn) heroBtn.textContent = '🎟️ สมัครเลยที่ ready-go.fun';
+
+  // 4. Pricing subtitle
+  const pricingSub = document.getElementById('pricing-subtitle');
+  if (pricingSub) pricingSub.innerHTML = 'ราคาปกติ — สมัครได้จนถึงวันแข่งขัน <strong style="color:var(--yellow)">21–22 มีนาคม 2569</strong>';
+
+  // 5. Starter Pack: hide EB price, style normal price as main
+  const starterEB = document.getElementById('starter-eb-price');
+  if (starterEB) starterEB.style.display = 'none';
+  const starterNormal = document.getElementById('starter-normal-price');
+  if (starterNormal) { starterNormal.style.cssText = 'color:var(--yellow);font-size:2.6rem;font-weight:900;font-family:Kanit,sans-serif'; starterNormal.textContent = '1,190 บาท'; }
+  const starterDL = document.getElementById('starter-deadline');
+  if (starterDL) starterDL.textContent = 'ราคาปกติ Starter Pack';
+
+  // 6. Experience Pack: hide EB price, style normal price as main
+  const expEB = document.getElementById('exp-eb-price');
+  if (expEB) expEB.style.display = 'none';
+  const expNormal = document.getElementById('exp-normal-price');
+  if (expNormal) { expNormal.style.cssText = 'color:var(--yellow);font-size:2.6rem;font-weight:900;font-family:Kanit,sans-serif'; expNormal.textContent = '1,590 บาท'; }
+  const expDL = document.getElementById('exp-deadline');
+  if (expDL) expDL.textContent = 'ราคาปกติ Experience Pack';
+
+  // 7. EB benefit highlight — update to post-EB message
+  const ebHL = document.getElementById('eb-benefit-highlight');
+  if (ebHL) ebHL.innerHTML = `
+    <div class="benefit-highlight-icon">✅</div>
+    <div class="benefit-highlight-text">
+      <h3>ยังสมัครได้! — ราคาปกติมีผลแล้ว</h3>
+      <p>ป้ายเบอร์นักแข่งจะเป็นแบบเขียนชื่อ (ไม่ใช่พิมพ์ชื่อแบบ Early Bird) แต่ยังได้รับสิทธิ์ครบทุกอย่างตามแพ็กเกจที่เลือก</p>
+    </div>
+    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" style="flex-shrink:0">สมัครเลย →</a>`;
+
+  // 8. Mid-CTA strip
+  const midTitle = document.getElementById('mid-cta-title');
+  if (midTitle) midTitle.textContent = '🏁 สนามรอลูกอยู่ — แข่งขัน 21–22 มีนาคมนี้!';
+  const midDesc = document.getElementById('mid-cta-desc');
+  if (midDesc) midDesc.textContent = 'สมัครได้ถึงวันแข่ง — ราคาปกติ Starter 1,190 • Experience 1,590 บาท';
+  const midBtn = document.getElementById('mid-cta-btn');
+  if (midBtn) midBtn.textContent = '🎟️ สมัครเลยที่ ready-go.fun';
+
+  // 9. Final CTA section
+  const finalTitle = document.getElementById('final-cta-title');
+  if (finalTitle) finalTitle.innerHTML = 'สมัครได้เลย! — <span>ราคาปกติ</span><br>แข่งขัน 21–22 มีนาคม 2569';
+  const finalDesc = document.getElementById('final-cta-desc');
+  if (finalDesc) finalDesc.textContent = 'ยังไม่สาย! สมัครได้จนถึงวันแข่ง';
+
+  // 10. Final CTA price badges
+  const finalStarterAmt = document.getElementById('final-starter-amt');
+  if (finalStarterAmt) finalStarterAmt.textContent = '1,190';
+  const finalStarterLbl = document.getElementById('final-starter-lbl');
+  if (finalStarterLbl) finalStarterLbl.innerHTML = 'Starter Pack<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.4)">ราคาปกติ</span>';
+  const finalExpAmt = document.getElementById('final-exp-amt');
+  if (finalExpAmt) finalExpAmt.textContent = '1,590';
+  const finalExpLbl = document.getElementById('final-exp-lbl');
+  if (finalExpLbl) finalExpLbl.innerHTML = 'Experience Pack 👑<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.5)">รวมเสื้อ+รูป — ราคาปกติ</span>';
+}
+
 // ─── Countdown Timer ───
 function updateCountdown() {
-  const target = new Date('2026-03-15T23:59:00+07:00');
+  const target = new Date('2026-03-17T23:59:00+07:00');
   const now = new Date();
   const diff = target - now;
   if (diff <= 0) {
-    document.querySelector('.countdown-box').innerHTML = '<div style="color:var(--yellow);font-family:Kanit,sans-serif;font-weight:800;font-size:1.2rem">⏰ Early Bird หมดแล้ว — ราคาปกติ</div>';
+    applyExpiredEB();
     return;
   }
   const d = Math.floor(diff / 86400000);
