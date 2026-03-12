@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooniverse Balance Bike Adventure — องครักษ์พิทักษ์เจี๊ยบ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a4d2e;
+    --green-mid: #2d7a4f;
+    --green-light: #4caf78;
+    --yellow: #FFD000;
+    --yellow-light: #FFF176;
+    --orange: #FF6B35;
+    --orange-dark: #E85320;
+    --cream: #FFFDF5;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-gray: #555;
+    --shadow: 0 8px 40px rgba(0,0,0,0.13);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: 'Kanit', sans-serif; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(26, 77, 46, 0.97);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .nav-logo { color: var(--yellow); font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.5px; }
+  .nav-cta {
+    background: var(--yellow); color: var(--green-dark);
+    border: none; padding: 9px 22px; border-radius: 30px;
+    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.95rem;
+    cursor: pointer; transition: all 0.2s; text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--orange); color: white; transform: scale(1.04); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0d2e1a 0%, #1a4d2e 40%, #2d7a4f 80%, #1a3d28 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 100px 20px 60px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(255,208,0,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,107,53,0.06) 0%, transparent 50%);
+  }
+  .hero-badge {
+    background: var(--yellow); color: var(--green-dark);
+    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.85rem;
+    padding: 6px 18px; border-radius: 20px; letter-spacing: 0.5px;
+    margin-bottom: 20px; display: inline-block;
+    animation: pulse-badge 2s infinite;
+  }
+  @keyframes pulse-badge { 0%,100%{box-shadow:0 0 0 0 rgba(255,208,0,0.5)} 50%{box-shadow:0 0 0 10px rgba(255,208,0,0)} }
+  .hero h1 {
+    color: white; font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 900; line-height: 1.15;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--yellow); }
+  .hero-sub {
+    color: rgba(255,255,255,0.85); font-size: clamp(1rem, 2.5vw, 1.35rem);
+    margin-bottom: 8px; font-weight: 500;
+  }
+  .hero-detail {
+    color: var(--yellow-light); font-size: 1.05rem; margin-bottom: 30px;
+  }
+  .hero-detail span { margin: 0 8px; }
+  /* Countdown */
+  .countdown-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,208,0,0.3);
+    border-radius: 16px; padding: 18px 28px;
+    margin-bottom: 32px; display: inline-block;
+  }
+  .countdown-label { color: var(--yellow); font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px; }
+  .countdown-timer { display: flex; gap: 16px; justify-content: center; }
+  .countdown-unit { text-align: center; }
+  .countdown-num {
+    font-family: 'Kanit', sans-serif; font-size: 2.2rem; font-weight: 800;
+    color: white; line-height: 1;
+    background: rgba(255,208,0,0.15); padding: 6px 14px; border-radius: 10px;
+    min-width: 56px; display: block;
+  }
+  .countdown-lbl { color: rgba(255,255,255,0.6); font-size: 0.75rem; margin-top: 4px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+  .btn-primary {
+    background: var(--yellow); color: var(--green-dark);
+    padding: 16px 36px; border-radius: 40px;
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.15rem;
+    text-decoration: none; transition: all 0.25s;
+    box-shadow: 0 6px 24px rgba(255,208,0,0.35);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(255,208,0,0.5); background: #ffe033; }
+  .btn-secondary {
+    background: transparent; color: white;
+    padding: 16px 32px; border-radius: 40px; border: 2px solid rgba(255,255,255,0.5);
+    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 1.05rem;
+    text-decoration: none; transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+  /* Hero image strip */
+  .hero-images {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: nowrap;
+    max-width: 900px; overflow: hidden;
+  }
+  .hero-img-wrap {
+    width: 180px; height: 220px; border-radius: 16px; overflow: hidden;
+    border: 3px solid rgba(255,208,0,0.3); flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+  }
+  .hero-img-wrap:hover { transform: scale(1.05) translateY(-6px); }
+  .hero-img-wrap img { width:100%; height:100%; object-fit: cover; object-position: center top; }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 70px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: var(--green-light); color: white;
+    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.8rem;
+    padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(1.7rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .section-subtitle { color: var(--text-gray); font-size: 1.05rem; line-height: 1.7; }
+
+  /* ─── EARLY BIRD PRICING ─── */
+  .pricing-section { background: var(--green-dark); }
+  .pricing-section .section-title { color: white; }
+  .pricing-section .section-subtitle { color: rgba(255,255,255,0.7); }
+  .pricing-section .section-tag { background: var(--yellow); color: var(--green-dark); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+  .price-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 30px 24px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    color: white;
+  }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+  .price-card.featured {
+    background: linear-gradient(135deg, rgba(255,208,0,0.12), rgba(255,107,53,0.08));
+    border-color: var(--yellow);
+  }
+  .featured-label {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--yellow); color: var(--green-dark);
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 0.8rem;
+    padding: 4px 16px; border-radius: 20px; white-space: nowrap;
+  }
+  .price-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .price-name { font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 6px; }
+  .price-amount-wrap { margin-bottom: 6px; }
+  .price-early {
+    font-family: 'Kanit', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--yellow);
+    line-height: 1;
+  }
+  .price-normal { color: rgba(255,255,255,0.45); font-size: 0.9rem; text-decoration: line-through; margin-left: 6px; }
+  .price-deadline { color: var(--orange); font-size: 0.82rem; font-weight: 600; margin-bottom: 16px; }
+  .price-features { list-style: none; margin-bottom: 20px; }
+  .price-features li {
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.95rem; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+  }
+  .price-features li:last-child { border: none; }
+  .price-features .chk { color: var(--green-light); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .btn-price {
+    display: block; text-align: center; width: 100%;
+    background: var(--yellow); color: var(--green-dark);
+    padding: 13px; border-radius: 12px;
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1rem;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-price:hover { background: var(--orange); color: white; }
+  .btn-price.outline {
+    background: transparent; color: rgba(255,255,255,0.7);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+  .btn-price.outline:hover { border-color: var(--yellow); color: var(--yellow); background: transparent; }
+
+  /* ─── STORY ─── */
+  .story-section { background: var(--cream); }
+  .story-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .story-text .section-tag { background: var(--orange); }
+  .story-chars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+  .story-egg {
+    background: linear-gradient(135deg, #f0faf4, #d4f0e0);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    padding: 16px 8px; text-align: center;
+    border: 2px solid var(--green-light);
+    transition: transform 0.25s;
+  }
+  .story-egg:hover { transform: translateY(-5px) rotate(-3deg); }
+  .story-egg-icon { font-size: 1.8rem; display: block; }
+  .story-egg-name { font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.75rem; color: var(--green-dark); margin-top: 4px; }
+  .story-img { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+  .story-img img { width: 100%; height: 380px; object-fit: cover; object-position: center; }
+
+  /* ─── ARENAS ─── */
+  .arenas-section { background: linear-gradient(180deg, #f5fff9 0%, #e8f7ef 100%); }
+  .arenas-section .section-tag { background: var(--green-mid); }
+  .arenas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; margin-top: 40px; }
+  .arena-card {
+    background: white; border-radius: 20px;
+    overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transition: all 0.3s; border: 2px solid transparent;
+  }
+  .arena-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); border-color: var(--green-light); }
+  .arena-num {
+    background: var(--green-dark); color: var(--yellow);
+    font-family: 'Kanit', sans-serif; font-weight: 900; font-size: 0.85rem;
+    padding: 8px 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .arena-num-badge {
+    background: var(--yellow); color: var(--green-dark);
+    border-radius: 50%; width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 900;
+  }
+  .arena-body { padding: 18px 20px; }
+  .arena-icon { font-size: 2.5rem; margin-bottom: 10px; }
+  .arena-name { font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--green-dark); }
+  .arena-mission { font-size: 0.88rem; color: var(--orange); font-weight: 600; margin-bottom: 8px; }
+  .arena-desc { font-size: 0.9rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 10px; }
+  .arena-skill {
+    display: inline-block;
+    background: #e8f7ef; color: var(--green-mid);
+    border-radius: 20px; padding: 3px 12px; font-size: 0.8rem; font-weight: 600;
+    margin-right: 4px; margin-bottom: 4px;
+  }
+
+  /* ─── EF SKILLS ─── */
+  .ef-section { background: white; }
+  .ef-section .section-tag { background: var(--orange); }
+  .ef-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; margin-top: 40px; }
+  .ef-card {
+    background: linear-gradient(135deg, #f9fffe, #e8f7f0);
+    border-radius: 18px; padding: 24px 20px; text-align: center;
+    border: 1px solid #c8eedd;
+    transition: transform 0.25s;
+  }
+  .ef-card:hover { transform: scale(1.04); }
+  .ef-icon { font-size: 2.8rem; margin-bottom: 12px; }
+  .ef-title { font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--green-dark); margin-bottom: 6px; }
+  .ef-desc { font-size: 0.88rem; color: var(--text-gray); line-height: 1.5; }
+  .ef-from { font-size: 0.78rem; color: var(--green-mid); font-weight: 600; margin-top: 8px; }
+
+  /* ─── GALLERY ─── */
+  .gallery-section { background: var(--green-dark); padding: 60px 0; }
+  .gallery-section .section-title { color: white; }
+  .gallery-section .section-subtitle { color: rgba(255,255,255,0.65); }
+  .gallery-inner { padding: 0 20px; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .gallery-item { border-radius: 14px; overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s; }
+  .gallery-item:hover img { transform: scale(1.06); }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item.wide { grid-column: span 2; }
+  .g-height-200 img { height: 200px; }
+  .g-height-410 img { height: 410px; }
+  .g-height-280 img { height: 280px; }
+
+  /* ─── SCHEDULE ─── */
+  .schedule-section { background: var(--cream); }
+  .schedule-section .section-tag { background: var(--green-mid); }
+  .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+  .schedule-card {
+    background: white; border-radius: 20px; padding: 28px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07); border-top: 5px solid var(--green-light);
+  }
+  .schedule-card.special { border-top-color: var(--yellow); }
+  .schedule-date {
+    font-family: 'Kanit', sans-serif; font-weight: 900; font-size: 1.4rem;
+    color: var(--green-dark); margin-bottom: 6px;
+  }
+  .schedule-title { font-weight: 700; font-size: 1.05rem; color: var(--orange); margin-bottom: 14px; }
+  .schedule-list { list-style: none; }
+  .schedule-list li {
+    display: flex; gap: 10px; padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0; font-size: 0.93rem; align-items: flex-start;
+  }
+  .schedule-list li:last-child { border: none; }
+  .schedule-list .time { color: var(--green-mid); font-weight: 700; flex-shrink: 0; min-width: 60px; }
+  /* Age table */
+  .age-table { width: 100%; border-collapse: collapse; margin-top: 32px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .age-table th {
+    background: var(--green-dark); color: var(--yellow);
+    font-family: 'Kanit', sans-serif; font-weight: 700; padding: 14px 16px; text-align: left; font-size: 0.95rem;
+  }
+  .age-table td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; font-size: 0.93rem; }
+  .age-table tr:last-child td { border: none; }
+  .age-table tr:nth-child(even) td { background: #f9fffc; }
+  .age-badge {
+    display: inline-block; padding: 3px 12px; border-radius: 20px; font-weight: 700; font-size: 0.8rem;
+  }
+  .little { background: #FFF3E0; color: #E65100; }
+  .junior { background: #E8F5E9; color: #2E7D32; }
+  .family { background: #E3F2FD; color: #1565C0; }
+
+  /* ─── MAP ─── */
+  .map-section { background: #f0f8f3; }
+  .map-section .section-tag { background: var(--green-mid); }
+  .map-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .map-img { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+  .map-img img { width: 100%; display: block; }
+  .map-info h3 { font-family: 'Kanit', sans-serif; font-size: 1.4rem; font-weight: 800; margin-bottom: 16px; color: var(--green-dark); }
+  .map-detail { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #dceee4; align-items: flex-start; }
+  .map-detail:last-child { border: none; }
+  .map-detail-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .map-detail-text strong { display: block; font-weight: 700; font-size: 0.95rem; color: var(--green-dark); }
+  .map-detail-text span { font-size: 0.88rem; color: var(--text-gray); line-height: 1.5; }
+
+  /* ─── FAQ ─── */
+  .faq-section { background: white; }
+  .faq-section .section-tag { background: var(--orange); }
+  .faq-list { max-width: 760px; margin: 36px auto 0; }
+  .faq-item {
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; background: none; border: none; text-align: left; cursor: pointer;
+    padding: 18px 4px; display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Sarabun', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text-dark);
+    gap: 12px;
+  }
+  .faq-q:hover { color: var(--green-mid); }
+  .faq-icon { color: var(--green-mid); font-size: 1.3rem; flex-shrink: 0; transition: transform 0.25s; }
+  .faq-a { font-size: 0.93rem; color: var(--text-gray); line-height: 1.75; padding: 0 4px 18px; display: none; }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* ─── FINAL CTA ─── */
+  .cta-section {
+    background: linear-gradient(135deg, #0d2e1a 0%, #1a4d2e 50%, #0d2e1a 100%);
+    text-align: center; padding: 80px 20px;
+  }
+  .cta-section h2 { color: white; font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; margin-bottom: 12px; }
+  .cta-section h2 span { color: var(--yellow); }
+  .cta-section p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 32px; }
+  .cta-prices {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .cta-price-badge {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,208,0,0.4);
+    border-radius: 14px; padding: 12px 20px; text-align: center; color: white;
+  }
+  .cta-price-badge .amt { font-family: 'Kanit', sans-serif; font-size: 1.6rem; font-weight: 900; color: var(--yellow); }
+  .cta-price-badge .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+  .cta-note { color: rgba(255,255,255,0.4); font-size: 0.82rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0a1f10; color: rgba(255,255,255,0.4); text-align: center;
+    padding: 24px; font-size: 0.82rem;
+  }
+  footer a { color: var(--yellow); text-decoration: none; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .float { animation: float 3.5s ease-in-out infinite; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .story-inner, .map-inner, .schedule-grid { grid-template-columns: 1fr; }
+    .hero-images { display: none; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.tall { grid-row: span 1; }
+    .gallery-item.wide { grid-column: span 2; }
+    .g-height-200 img, .g-height-410 img, .g-height-280 img { height: 180px; }
+    nav { padding: 10px 16px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .story-chars { grid-template-columns: repeat(4, 1fr); }
+    .ef-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ─── SCROLL REVEAL ANIMATION STUBS ─── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-logo">🥚 Tooniverse Balance Bike</div>
+  <a href="https://ready-go.fun/e/TNV2" class="nav-cta" target="_blank">สมัครเลย →</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-badge">🌟 EARLY BIRD ถึง 15 มีนาคมนี้เท่านั้น!</div>
+  <h1 class="fade-up">ลูกน้อยคือ<span>องครักษ์</span><br>ฝ่า 7 ด่าน ปกป้องเจี๊ยบ!</h1>
+  <p class="hero-sub">Tooniverse Balance Bike Adventure × Out of the Nest</p>
+  <p class="hero-detail">
+    <span>📍 The Promenade รามอินทรา • ชั้น 1</span>
+    <span>📅 18–22 มีนาคม 2568</span>
+    <span>🏆 แข่งขัน 21–22 มีนาคม</span>
+  </p>
+
+  <!-- Countdown -->
+  <div class="countdown-box">
+    <div class="countdown-label">⏰ EARLY BIRD หมดใน</div>
+    <div class="countdown-timer">
+      <div class="countdown-unit"><span class="countdown-num" id="cd-d">00</span><span class="countdown-lbl">วัน</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-h">00</span><span class="countdown-lbl">ชั่วโมง</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-m">00</span><span class="countdown-lbl">นาที</span></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cd-s">00</span><span class="countdown-lbl">วินาที</span></div>
+    </div>
+  </div>
+
+  <div class="hero-btns">
+    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank">🎟️ สมัครรับ Early Bird</a>
+    <a href="#pricing" class="btn-secondary">ดูแพ็กเกจทั้งหมด ↓</a>
+  </div>
+
+  <!-- Photo strip -->
+  <div class="hero-images">
+    <div class="hero-img-wrap float" style="animation-delay:0s"><img src="photo_race1.jpg" alt="เด็กแข่งจักรยาน"></div>
+    <div class="hero-img-wrap float" style="animation-delay:0.4s"><img src="gallery_01.jpg" alt="บรรยากาศงาน"></div>
+    <div class="hero-img-wrap float" style="animation-delay:0.8s"><img src="photo_race4.jpg" alt="เด็กในสนาม"></div>
+    <div class="hero-img-wrap float" style="animation-delay:1.2s"><img src="photo_ride1.jpg" alt="เด็กปั่นจักรยาน"></div>
+    <div class="hero-img-wrap float" style="animation-delay:1.6s"><img src="photo_race2.jpg" alt="เด็กรับรางวัล"></div>
+  </div>
+</section>
+
+<!-- ═══ PRICING (Early Bird) ═══ -->
+<section class="pricing-section" id="pricing">
+<div class="container">
+  <div style="text-align:center;margin-bottom:8px"><span class="section-tag">💰 แพ็กเกจ & ราคา</span></div>
+  <h2 class="section-title" style="color:white;text-align:center">เลือกแพ็กเกจที่ใช่สำหรับลูก</h2>
+  <p class="section-subtitle" style="text-align:center">Early Bird ราคาพิเศษถึง <strong style="color:var(--yellow)">15 มีนาคม 2568</strong> เท่านั้น — หลังจากนั้นปรับราคาปกติทันที</p>
+
+  <div class="pricing-grid reveal">
+    <!-- Walk-in -->
+    <div class="price-card">
+      <div class="price-icon">🎠</div>
+      <div class="price-name">Walk-in</div>
+      <div class="price-amount-wrap">
+        <span class="price-early">350</span>
+        <span style="color:rgba(255,255,255,0.7);font-size:1rem"> บาท/รอบ</span>
+      </div>
+      <div class="price-deadline">ไม่ต้องสมัครล่วงหน้า — จ่ายหน้างานได้เลย!</div>
+      <ul class="price-features">
+        <li><span class="chk">✓</span> ขี่จักรยานวนสนาม + ทำภารกิจย่อ 3 ด่าน</li>
+        <li><span class="chk">✓</span> รอบละ 15 นาที เล่นซ้ำได้ไม่จำกัด</li>
+        <li><span class="chk">✓</span> 🏅 เหรียญ "องครักษ์ฝึกหัด" กลับบ้าน</li>
+        <li><span class="chk">✓</span> เล่นได้ทุกวัน 18–22 มีนาคม</li>
+        <li><span class="chk" style="color:#666">–</span> <span style="opacity:0.5">ไม่รวมการแข่งขัน</span></li>
+      </ul>
+      <a href="https://ready-go.fun/e/TNV2" class="btn-price outline" target="_blank">มาเล่นหน้างาน</a>
+    </div>
+
+    <!-- Starter -->
+    <div class="price-card">
+      <div class="price-icon">⭐</div>
+      <div class="price-name">Starter Pack</div>
+      <div class="price-amount-wrap">
+        <span class="price-early">990</span>
+        <span class="price-normal">1,190 บาท</span>
+      </div>
+      <div class="price-deadline">🔥 Early Bird ถึง 15 มี.ค. | ราคาปกติ 1,190 บาท</div>
+      <ul class="price-features">
+        <li><span class="chk">✓</span> ลงแข่งขัน 6 รุ่นอายุ (Little / Junior / Family)</li>
+        <li><span class="chk">✓</span> ฝ่า 7 ด่าน Mission Arena ครบ</li>
+        <li><span class="chk">✓</span> โล่ + เหรียญรางวัลทุกคน</li>
+        <li><span class="chk">✓</span> ถ่ายรูปกับ Mascot</li>
+        <li><span class="chk">✓</span> เล่นสนามได้ตลอด 5 วัน</li>
+        <li><span class="chk" style="color:#888">+</span> <span style="opacity:0.8">Pre-order รูปได้ 289 บาท</span></li>
+      </ul>
+      <a href="https://ready-go.fun/e/TNV2" class="btn-price" target="_blank">สมัคร Starter ตอนนี้</a>
+    </div>
+
+    <!-- Experience -->
+    <div class="price-card featured">
+      <div class="featured-label">👑 แนะนำ — คุ้มที่สุด!</div>
+      <div class="price-icon">🏆</div>
+      <div class="price-name">Experience Pack</div>
+      <div class="price-amount-wrap">
+        <span class="price-early">1,450</span>
+        <span class="price-normal">1,590 บาท</span>
+      </div>
+      <div class="price-deadline">🔥 Early Bird ถึง 15 มี.ค. | ราคาปกติ 1,590 บาท</div>
+      <ul class="price-features">
+        <li><span class="chk">✓</span> ทุกอย่างใน Starter Pack</li>
+        <li><span class="chk">✓</span> 👕 <strong style="color:var(--yellow)">ชุดแข่ง Tooniverse Limited Edition</strong></li>
+        <li><span class="chk">✓</span> 📸 <strong style="color:var(--yellow)">ภาพถ่ายมืออาชีพตลอดวัน</strong> (รวมแล้ว!)</li>
+        <li><span class="chk">✓</span> โล่ + เหรียญรางวัลทุกคน</li>
+        <li><span class="chk">✓</span> สิทธิ์ทุกอย่างครบในแพ็กเดียว</li>
+        <li><span class="chk">✓</span> เล่นสนามได้ตลอด 5 วัน</li>
+      </ul>
+      <a href="https://ready-go.fun/e/TNV2" class="btn-price" target="_blank">สมัคร Experience ตอนนี้ →</a>
+    </div>
+  </div>
+
+  <p style="text-align:center;color:rgba(255,255,255,0.45);margin-top:20px;font-size:0.85rem">
+    💡 สมาชิกเก่า: ใส่เบอร์โทรเดิม ระบบดึงข้อมูลให้อัตโนมัติ ไม่ต้องกรอกซ้ำ ✅
+    | อยากแข่งหลังจาก Walk-in → Upgrade ได้หน้างานเลย!
+  </p>
+</div>
+</section>
+
+<!-- ═══ STORY ═══ -->
+<section class="story-section" id="about">
+<div class="container">
+  <div class="story-inner">
+    <div class="story-text reveal">
+      <span class="section-tag">🥚 เรื่องราว</span>
+      <h2 class="section-title">เจี๊ยบหายจากรัง!<br><span style="color:var(--orange)">ลูกคือองครักษ์</span></h2>
+      <p class="section-subtitle" style="margin-bottom:20px">ไข่ทั้ง 7 ฟองกระจัดกระจายอยู่ในป่าลึก... วันนี้ถึงเวลาที่ลูกจะได้เป็นฮีโร่ตัวจริง ขี่จักรยานขาไถฝ่า 7 ด่านผจญภัย ปกป้องลูกนก "เจี๊ยบ" จาก <strong>Out of the Nest</strong> แอนิเมชันไทยบน Netflix!</p>
+      <p style="color:var(--text-gray);font-size:0.93rem;margin-bottom:24px">กิจกรรม Collaboration พิเศษระหว่าง <strong>Cruzee</strong> × <strong>Out of the Nest</strong> — ด่านผจญภัยแต่ละด่านได้แรงบันดาลใจจากตัวละคร 7 ตัวในเรื่อง ฝึกทักษะ EF ให้ลูกโดยที่เขาไม่รู้ตัวเลย 😄</p>
+      <div class="story-chars">
+        <div class="story-egg"><span class="story-egg-icon">🌿</span><span class="story-egg-name">เทอรา</span></div>
+        <div class="story-egg"><span class="story-egg-icon">⚡</span><span class="story-egg-name">สปาร์ค</span></div>
+        <div class="story-egg"><span class="story-egg-icon">💧</span><span class="story-egg-name">พัดเดิล</span></div>
+        <div class="story-egg"><span class="story-egg-icon">☁️</span><span class="story-egg-name">พัฟ</span></div>
+        <div class="story-egg"><span class="story-egg-icon">🔩</span><span class="story-egg-name">ทิน</span></div>
+        <div class="story-egg"><span class="story-egg-icon">🌱</span><span class="story-egg-name">ทวิก</span></div>
+        <div class="story-egg"><span class="story-egg-icon">🍃</span><span class="story-egg-name">ลีฟ</span></div>
+        <div class="story-egg" style="background:linear-gradient(135deg,#fff8e1,#ffe082)"><span class="story-egg-icon">🏆</span><span class="story-egg-name">Grand Cup</span></div>
+      </div>
+    </div>
+    <div class="story-img reveal">
+      <img src="CRUZEE_Backdrop.jpg" alt="Out of the Nest Backdrop" style="width:100%;height:380px;object-fit:cover;">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ 7 ARENAS ═══ -->
+<section class="arenas-section" id="arenas">
+<div class="container">
+  <div style="text-align:center;margin-bottom:8px"><span class="section-tag">🗺️ 7 ด่านผจญภัย</span></div>
+  <h2 class="section-title" style="text-align:center">แต่ละด่าน — ฝึกคนละทักษะ</h2>
+  <p class="section-subtitle" style="text-align:center;max-width:600px;margin:0 auto">เด็กๆ จะได้สนุกจนลืมว่ากำลัง "เรียนรู้" อยู่ — ทุกด่านออกแบบมาเพื่อพัฒนา EF Skills อย่างแยบยล</p>
+
+  <div class="arenas-grid">
+    <!-- Arena 1 -->
+    <div class="arena-card reveal">
+      <div class="arena-num"><div class="arena-num-badge">1</div> ด่านเทอรา</div>
+      <div class="arena-body">
+        <div class="arena-icon">🌿</div>
+        <div class="arena-name">ตาข่ายหรรษา</div>
+        <div class="arena-mission">📌 เดินข้ามสิ่งกีดขวาง</div>
+        <div class="arena-desc">รอบรู้ ฉลาด ใจดี และมีความเป็นผู้นำ — จดจำลำดับขั้นตอน วางแผนเส้นทางผ่านสิ่งกีดขวาง</div>
+        <span class="arena-skill">ความจำเพื่อใช้งาน</span>
+        <span class="arena-skill">การวางแผน</span>
+      </div>
+    </div>
+    <!-- Arena 2 -->
+    <div class="arena-card reveal">
+      <div class="arena-num"><div class="arena-num-badge">2</div> ด่านสปาร์ค</div>
+      <div class="arena-body">
+        <div class="arena-icon">⚡</div>
+        <div class="arena-name">หลุมยางเอาแต่ใจ</div>
+        <div class="arena-mission">📌 กระโดดหลุมยางให้ครบทุกชิ้น</div>
+        <div class="arena-desc">หัวร้อน กล้าบู้ กล้าไฟว์ — หยุดคิดก่อนลงมือทำ ฝึกการยั้งคิดและควบคุมอารมณ์</div>
+        <span class="arena-skill">การยั้งคิดไตร่ตรอง</span>
+        <span class="arena-skill">ควบคุมอารมณ์</span>
+      </div>
+    </div>
+    <!-- Arena 3 -->
+    <div class="arena-card reveal">
+      <div class="arena-num"><div class="arena-num-badge">3</div> ด่านพัดเดิล</div>
+      <div class="arena-body">
+        <div class="arena-icon">💧</div>
+        <div class="arena-name">ปีนผาไถลดิน</div>
+        <div class="arena-mission">📌 ปีนข้ามภูเขา + สไลเดอร์ลงพื้น</div>
+        <div class="arena-desc">อ่อนโยนแต่แข็งแรง จอมพลัง — ใช้กล้ามเนื้อมัดใหญ่ เชื่อมโยงพลังกายกับการควบคุมตนเอง</div>
+        <span class="arena-skill">การรับรู้ร่างกาย</span>
+        <span class="arena-skill">ใช้กำลังอย่างเหมาะสม</span>
+      </div>
+    </div>
+    <!-- Arena 4 -->
+    <div class="arena-card reveal">
+      <div class="arena-num"><div class="arena-num-badge">4</div> ด่านพัฟ</div>
+      <div class="arena-body">
+        <div class="arena-icon">☁️</div>
+        <div class="arena-name">อุโมงค์เถาวัลย์</div>
+        <div class="arena-mission">📌 คลานรอดอุโมงค์ใบไม้</div>
+        <div class="arena-desc">สายชิล พร้อมจะงีบหลับ — หยุดพักอย่างมีกลยุทธ์ ประเมินตนเองและชะลอความเร็ว</div>
+        <span class="arena-skill">การประเมินตนเอง</span>
+        <span class="arena-skill">การวางแผนจังหวะ</span>
+      </div>
+    </div>
+    <!-- Arena 5 -->
+    <div class="arena-card reveal">
+      <div class="arena-num"><div class="arena-num-badge">5</div> ด่านทิน</div>
+      <div class="arena-body">
+        <div class="arena-icon">🔩</div>
+        <div class="arena-name">จิ๊กซอว์เพอร์เฟค</div>
+        <div class="arena-mission">📌 ต๊อกล็อกจิ๊กซอว์โลโก้ขณะขี่จักรยาน</div>
+        <div class="arena-desc">เที่ยงตรง สมบูรณ์แบบ มุ่งมั่น — เคลื่อนที่อย่างระมัดระวัง ฝึกสมาธิและความแม่นยำ</div>
+        <span class="arena-skill">การจดจ่อใส่ใจ</span>
+        <span class="arena-skill">ความแม่นยำ</span>
+      </div>
+    </div>
+    <!-- Arena 6 -->
+    <div class="arena-card reveal">
+      <div class="arena-num"><div class="arena-num-badge">6</div> ด่านทวิก</div>
+      <div class="arena-body">
+        <div class="arena-icon">🌱</div>
+        <div class="arena-name">บ่อบอลสีสดใส</div>
+        <div class="arena-mission">📌 หาของในบ่อบอล 1 ชิ้น พร้อมตะโกนบอกชื่อ</div>
+        <div class="arena-desc">ขี้เล่น สนุกสนาน — ค้นหาและจำแนกสิ่งของ ฝึกการสังเกตและสมาธิในสภาพแวดล้อมที่สับสน</div>
+        <span class="arena-skill">การจดจ่อใส่ใจ</span>
+        <span class="arena-skill">ความแม่นยำ</span>
+      </div>
+    </div>
+    <!-- Arena 7 -->
+    <div class="arena-card reveal" style="border-color:var(--orange)">
+      <div class="arena-num" style="background:var(--orange-dark)"><div class="arena-num-badge" style="background:white;color:var(--orange-dark)">7</div> ด่านลีฟ</div>
+      <div class="arena-body">
+        <div class="arena-icon">🍃</div>
+        <div class="arena-name">นักซิ่งวิ่งสู้ฟัด</div>
+        <div class="arena-mission">📌 ไถจักรยานฝ่าพื้นไม่เรียบเข้าเส้นชัย</div>
+        <div class="arena-desc">เห็นอกเห็นใจ ขี้กังวลแต่ก็พร้อมสู้ — เผชิญหน้ากับสิ่งเร้าที่น่าประหลาดใจแต่ปลอดภัย</div>
+        <span class="arena-skill">ความยืดหยุ่นทางใจ</span>
+        <span class="arena-skill">จัดการความกลัว</span>
+      </div>
+    </div>
+    <!-- Grand Cup -->
+    <div class="arena-card reveal" style="background:linear-gradient(135deg,#fff8e1,#fff3cd);border-color:var(--yellow)">
+      <div class="arena-num" style="background:var(--green-dark)"><div class="arena-num-badge">🏆</div> Grand Cup Final</div>
+      <div class="arena-body">
+        <div class="arena-icon">👑</div>
+        <div class="arena-name">Out of the Nest Grand Cup</div>
+        <div class="arena-mission">📌 สู่อาณาจักรแคสเตเลีย — รอบชิงรางวัลพิเศษ</div>
+        <div class="arena-desc">สนามรวมทุกองค์ประกอบของการผจญภัย — ทางโค้งคดเคี้ยว ทางตรงยาว ทางลาดขึ้น-ลง สิ่งกีดขวาง — ทดสอบทักษะรอบด้าน!</div>
+        <span class="arena-skill" style="background:#fff3cd;color:#856404">วันที่ 21–22 มีนาคม</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ EF SKILLS ═══ -->
+<section class="ef-section">
+<div class="container">
+  <div style="text-align:center"><span class="section-tag">🧠 สิ่งที่ลูกจะได้</span></div>
+  <h2 class="section-title" style="text-align:center;margin-top:10px">ลูกจะได้ฝึก...<br>ทักษะที่พ่อแม่อยากให้มี</h2>
+  <p class="section-subtitle" style="text-align:center;max-width:600px;margin:0 auto">ไม่ใช่แค่สนุก — ทุกด่านออกแบบมาเพื่อพัฒนา <strong>Executive Function (EF)</strong> ทักษะสมองส่วนหน้าที่สำคัญที่สุดสำหรับเด็กวัย 2–10 ปี</p>
+
+  <div class="ef-grid">
+    <div class="ef-card reveal">
+      <div class="ef-icon">🎯</div>
+      <div class="ef-title">ความกล้าตัดสินใจ</div>
+      <div class="ef-desc">ลูกจะเรียนรู้การตัดสินใจภายใต้แรงกดดันในเวลาจำกัด</div>
+      <div class="ef-from">จากด่านทุกด่าน</div>
+    </div>
+    <div class="ef-card reveal">
+      <div class="ef-icon">🧘</div>
+      <div class="ef-title">ยั้งคิดไตร่ตรอง</div>
+      <div class="ef-desc">หยุดคิดก่อนลงมือทำ — ทักษะที่เด็กๆ ต้องใช้ตลอดชีวิต</div>
+      <div class="ef-from">จากด่านสปาร์ค (⚡)</div>
+    </div>
+    <div class="ef-card reveal">
+      <div class="ef-icon">🗓️</div>
+      <div class="ef-title">การวางแผน</div>
+      <div class="ef-desc">จดจำลำดับ วางแผนเส้นทาง แก้ปัญหาอย่างสร้างสรรค์</div>
+      <div class="ef-from">จากด่านเทอรา (🌿)</div>
+    </div>
+    <div class="ef-card reveal">
+      <div class="ef-icon">💪</div>
+      <div class="ef-title">การไม่ยอมแพ้</div>
+      <div class="ef-desc">เจออุปสรรคแล้วลุกขึ้นสู้ใหม่ — ความกล้าหาญแบบเจี๊ยบ</div>
+      <div class="ef-from">จากด่านลีฟ (🍃)</div>
+    </div>
+    <div class="ef-card reveal">
+      <div class="ef-icon">🎈</div>
+      <div class="ef-title">การรอคอยอย่างอดทน</div>
+      <div class="ef-desc">รอรอบ รอเพื่อน ชะลอความเร็วเพื่อความแม่นยำ</div>
+      <div class="ef-from">จากด่านพัฟ (☁️)</div>
+    </div>
+    <div class="ef-card reveal">
+      <div class="ef-icon">🏅</div>
+      <div class="ef-title">ความภูมิใจในตนเอง</div>
+      <div class="ef-desc">รับโล่และเหรียญรางวัล — ความทรงจำดีๆ ที่จะจำไปตลอด</div>
+      <div class="ef-from">ทุกคนได้รับ</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="gallery-section">
+<div class="gallery-inner container">
+  <div style="text-align:center"><span class="section-tag" style="background:var(--yellow);color:var(--green-dark)">📸 บรรยากาศงาน</span></div>
+  <h2 class="section-title" style="text-align:center;margin-top:10px;color:white">"Field 2 — ใหญ่กว่า สนุกกว่า มีด่าน Warrior เพิ่มด้วย"</h2>
+  <p class="section-subtitle" style="text-align:center;color:rgba(255,255,255,0.6)">ดูหน้าเขาสิ... ไม่มีคำไหนอธิบายได้ดีกว่าภาพนี้ 🥹</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item wide g-height-280"><img src="gallery_01.jpg" alt="บรรยากาศงาน"></div>
+    <div class="gallery-item g-height-280"><img src="photo_race3.jpg" alt="เด็กแข่งขัน"></div>
+    <div class="gallery-item g-height-280"><img src="photo_ride2.jpg" alt="เด็กรับรางวัล"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_03.jpg" alt="เด็กในสนาม"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_04.jpg" alt="กิจกรรม"></div>
+    <div class="gallery-item g-height-200"><img src="photo_race5.jpg" alt="เด็กขี่จักรยาน"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_05.jpg" alt="เด็กสนุก"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_06.jpg" alt="กิจกรรมเด็ก"></div>
+    <div class="gallery-item g-height-200"><img src="photo_ride1.jpg" alt="เด็กปั่น"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_07.jpg" alt="รับรางวัล"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_08.jpg" alt="ครอบครัวสนุก"></div>
+    <div class="gallery-item g-height-200"><img src="gallery_02.jpg" alt="เด็กปั่น 2"></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ SCHEDULE & AGE CATEGORIES ═══ -->
+<section class="schedule-section" id="schedule">
+<div class="container">
+  <div style="text-align:center"><span class="section-tag">📅 ตารางกิจกรรม</span></div>
+  <h2 class="section-title" style="text-align:center;margin-top:10px">5 วัน 5 ความสนุก</h2>
+  <p class="section-subtitle" style="text-align:center">เลือกวันที่สะดวก — มาวันเดียวหรือทั้งสองวันแข่งก็ได้ หรือจะมาเล่นทุกวันเลยก็สนุก!</p>
+
+  <div class="schedule-grid reveal">
+    <div class="schedule-card">
+      <div class="schedule-date">18–20 มีนาคม 2568</div>
+      <div class="schedule-title">🎠 วันเล่นภารกิจอิสระ (Walk-in)</div>
+      <ul class="schedule-list">
+        <li><span class="time">ตลอดวัน</span><span>เปิดสนาม — ด่านทั้ง 7 เต็มรูปแบบ</span></li>
+        <li><span class="time">ทุกรอบ</span><span>รอบละ 15 นาที • 350 บาท</span></li>
+        <li><span class="time">ทุกวัน</span><span>🛍️ Exclusive Shop (Cruzee × Out of the Nest)</span></li>
+        <li><span class="time">ทุกวัน</span><span>🎨 Glitter Tattoos & Mascot Show</span></li>
+        <li><span class="time">กลับบ้าน</span><span>🏅 เหรียญ "องครักษ์ฝึกหัด" ทุกคน</span></li>
+      </ul>
+    </div>
+    <div class="schedule-card special">
+      <div class="schedule-date">21–22 มีนาคม 2568</div>
+      <div class="schedule-title">🏆 วันแข่งขัน (เหมือนกันทั้ง 2 วัน)</div>
+      <ul class="schedule-list">
+        <li><span class="time">เช้า</span><span>🎭 Mascot Troop & Show สุดน่ารัก</span></li>
+        <li><span class="time">กลางวัน</span><span>🏁 แข่งรอบแรก — Little / Junior / Family</span></li>
+        <li><span class="time">บ่าย</span><span>🏆 รอบชิงชนะเลิศ + มอบโล่รางวัล</span></li>
+        <li><span class="time">ตลอดวัน</span><span>📸 ถ่ายรูปกับ Mascot</span></li>
+        <li><span class="time">เสริม</span><span>ช่วงว่าง = เปิดสนามเล่น Walk-in</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Age Categories -->
+  <h3 style="font-family:'Kanit',sans-serif;font-size:1.4rem;font-weight:800;margin:40px 0 16px;text-align:center;color:var(--green-dark)">รุ่นการแข่งขัน</h3>
+  <table class="age-table reveal">
+    <thead>
+      <tr>
+        <th>รุ่น</th><th>ช่วงอายุ</th><th>หมวด</th><th>รายละเอียด</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Little Chicks Racing</strong></td>
+        <td>2–3 ปี</td>
+        <td><span class="age-badge little">Little Chicks</span></td>
+        <td>+ ผู้ปกครอง 1 ท่าน ลงแข่งด้วยกัน</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chicks</strong></td>
+        <td>3–4 ปี</td>
+        <td><span class="age-badge junior">Junior Chicks</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chicks</strong></td>
+        <td>4–5 ปี</td>
+        <td><span class="age-badge junior">Junior Chicks</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chicks</strong></td>
+        <td>5–6 ปี</td>
+        <td><span class="age-badge junior">Junior Chicks</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chicks</strong></td>
+        <td>6–7 ปี</td>
+        <td><span class="age-badge junior">Junior Chicks</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ</td>
+      </tr>
+      <tr>
+        <td><strong>Open Class</strong></td>
+        <td>Open (ไม่เกิน 10 ปี)</td>
+        <td><span class="age-badge junior">Junior Chicks</span></td>
+        <td>เปิดกว้าง ทุกระดับทักษะ</td>
+      </tr>
+      <tr>
+        <td><strong>Chick Legends</strong></td>
+        <td>ผู้ปกครอง + ลูก</td>
+        <td><span class="age-badge family">Family</span></td>
+        <td>พ่อแม่แข่งพร้อมลูก!</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ═══ MAP & VENUE ═══ -->
+<section class="map-section" id="venue">
+<div class="container">
+  <div style="text-align:center"><span class="section-tag">📍 สถานที่</span></div>
+  <h2 class="section-title" style="text-align:center;margin-top:10px">The Promenade รามอินทรา</h2>
+  <div class="map-inner reveal">
+    <div class="map-img">
+      <img src="map_arena.jpg" alt="ผังสนาม Tooniverse" style="border-radius:20px;">
+    </div>
+    <div class="map-info">
+      <h3>ผังสนาม — ลานน้ำพุ ชั้น 1</h3>
+      <p style="color:var(--text-gray);margin-bottom:20px;font-size:0.93rem">พื้นที่รวม 400 ตร.ม. ในร่ม มีแอร์ เล่นได้สบายทั้งวัน 🌬️</p>
+      <div class="map-detail">
+        <div class="map-detail-icon">📍</div>
+        <div class="map-detail-text">
+          <strong>The Promenade รามอินทรา</strong>
+          <span>ลานน้ำพุ ชั้น 1 • พื้นที่ Indoor สบายๆ</span>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-detail-icon">📅</div>
+        <div class="map-detail-text">
+          <strong>18–22 มีนาคม 2568</strong>
+          <span>Walk-in ทุกวัน | แข่งขัน 21–22 มีนาคม</span>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-detail-icon">🚲</div>
+        <div class="map-detail-text">
+          <strong>จักรยาน Cruzee (ยืมได้หน้างาน!)</strong>
+          <span>นำจักรยานเองก็ได้ หรือยืมได้จากสนาม</span>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-detail-icon">🛡️</div>
+        <div class="map-detail-text">
+          <strong>อุปกรณ์ป้องกัน</strong>
+          <span>หมวกกันน็อค + รองเท้าปิดปลายเท้า (จำเป็น)<br>มีจำหน่ายอุปกรณ์หน้างาน</span>
+        </div>
+      </div>
+      <div class="map-detail">
+        <div class="map-detail-icon">🛍️</div>
+        <div class="map-detail-text">
+          <strong>Exclusive Shop</strong>
+          <span>Cruzee × Out of the Nest สินค้าพิเศษ ซื้อได้ทุกวัน</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-section">
+<div class="container">
+  <div style="text-align:center"><span class="section-tag">❓ คำถามที่พบบ่อย</span></div>
+  <h2 class="section-title" style="text-align:center;margin-top:10px">ถาม–ตอบ</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ลูกไม่เคยแข่งมาก่อน — มาได้ไหม?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">ได้เลยค่ะ! กิจกรรมนี้ออกแบบมาสำหรับเด็กทุกระดับทักษะ ทั้ง Walk-in สำหรับมาเล่นสนุกๆ และแพ็กเกจแข่งขันก็มีรุ่นแยกตามอายุอย่างละเอียด เด็กๆ จะได้แข่งกับคนวัยใกล้เคียงกัน ทุกคนได้รับโล่และเหรียญกลับบ้านแน่นอน 🏅</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ถ้าแพ้ในรอบแรก ยังได้อะไรบ้าง?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">ทุกคนที่ลงแข่งได้รับ: โล่รางวัล + เหรียญที่ระลึก + ภาพถ่าย + ประสบการณ์ที่ไม่มีวันลืม และยังมีสิทธิ์เล่นสนามฟรีตลอด 5 วัน นี่ไม่ใช่แค่งานแข่ง — แต่เป็นงานฉลองความกล้าของลูก 💛</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ผู้ปกครองลงสนามด้วยได้ไหม?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">ได้ค่ะ! รุ่น "Chick Legends" (Family Racing) เปิดให้พ่อแม่แข่งพร้อมลูกได้เลย และสำหรับรุ่น Little Chicks (2–3 ปี) ผู้ปกครอง 1 ท่านลงแข่งด้วยกันค่ะ</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ซื้อ Walk-in แล้วอยากแข่ง upgrade ได้ไหม?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">ได้เลยค่ะ! สามารถ Upgrade เป็น Starter หรือ Experience Pack ได้หน้างาน (ราคาปกติ ไม่ใช่ Early Bird) แนะนำสมัครล่วงหน้าเพื่อรับราคา Early Bird จะคุ้มกว่ามากค่ะ</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ไม่มีจักรยานทำอย่างไร?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">ยืมจักรยาน Cruzee ได้หน้างานค่ะ มีให้บริการทุกขนาด พร้อมอุปกรณ์ความปลอดภัย (หมวก ฯลฯ) จำหน่ายหน้างานด้วย</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        วันแข่ง 21 กับ 22 ต่างกันไหม?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">กิจกรรมทั้งสองวันเหมือนกันทุกอย่างค่ะ — เลือกวันที่สะดวก หรือจะมาทั้ง 2 วันก็ได้ เพราะแข่งเป็นรอบๆ ช่วงเวลาว่างก็เปิดสนามเล่น Walk-in ให้เด็กปิดเทอมได้สนุกตลอดวัน</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        สมาชิกเก่าต้องกรอกข้อมูลใหม่ไหม?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">ไม่ต้องค่ะ! ใส่เบอร์โทรเดิมที่เคยสมัครไว้ ระบบดึงข้อมูลให้อัตโนมัติ สะดวกสบายมากค่ะ ✅</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta-section" id="register">
+  <div class="container">
+    <div style="font-size:3.5rem;margin-bottom:16px">🥚</div>
+    <h2>สมัครตอนนี้ — <span>Early Bird</span><br>ถึง 15 มีนาคมนี้เท่านั้น!</h2>
+    <p>อย่ารอให้หมด! ราคา Early Bird หายแล้วหายเลย</p>
+
+    <div class="cta-prices">
+      <div class="cta-price-badge">
+        <div class="amt">350</div>
+        <div class="lbl">Walk-in / รอบ<br>ไม่ต้องสมัครล่วงหน้า</div>
+      </div>
+      <div class="cta-price-badge" style="border-color:rgba(255,255,255,0.2)">
+        <div class="amt">990</div>
+        <div class="lbl">Starter Pack<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.4)">Early Bird (ปกติ 1,190)</span></div>
+      </div>
+      <div class="cta-price-badge" style="border-color:var(--yellow)">
+        <div class="amt">1,450</div>
+        <div class="lbl" style="color:var(--yellow-light)">Experience Pack 👑<br><span style="font-size:0.75rem;color:rgba(255,255,255,0.5)">รวมเสื้อ+รูป (ปกติ 1,590)</span></div>
+      </div>
+    </div>
+
+    <div class="cta-btns">
+      <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" style="font-size:1.2rem;padding:18px 44px">🎟️ สมัครเลยที่ ready-go.fun</a>
+    </div>
+    <p class="cta-note">📍 The Promenade รามอินทรา • 18–22 มีนาคม 2568 • สนามในร่ม แอร์เย็น 🌬️</p>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© 2568 Tooniverse Balance Bike Adventure × <a href="#">Cruzee Thailand</a> × <a href="#">Out of the Nest</a></p>
+  <p style="margin-top:6px">สอบถามเพิ่มเติม: <a href="https://ready-go.fun/e/TNV2" target="_blank">ready-go.fun</a></p>
+</footer>
+
+<script>
+// ─── Countdown Timer ───
+function updateCountdown() {
+  const target = new Date('2025-03-15T23:59:00+07:00');
+  const now = new Date();
+  const diff = target - now;
+  if (diff <= 0) {
+    document.querySelector('.countdown-box').innerHTML = '<div style="color:var(--yellow);font-family:Kanit,sans-serif;font-weight:800;font-size:1.2rem">⏰ Early Bird หมดแล้ว — ราคาปกติ</div>';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ─── FAQ Toggle ───
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+// ─── Scroll Reveal ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
