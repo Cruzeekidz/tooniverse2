@@ -125,6 +125,23 @@
     display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+  /* Hero highlight chips */
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    margin: 16px auto 0; max-width: 680px;
+    animation: fadeUp 0.8s 0.45s both;
+  }
+  .hero-chip {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.9); border-radius: 999px;
+    padding: 6px 14px; font-size: 0.82rem; font-family: Sarabun, sans-serif; font-weight: 600;
+    backdrop-filter: blur(4px);
+  }
+  .hero-chip--new {
+    background: rgba(239,68,68,0.25); border-color: rgba(239,68,68,0.6);
+    color: #fca5a5;
+  }
+
   /* Hero image strip */
   /* Hero banner — ใต้ปุ่ม */
   .hero-banner {
@@ -529,7 +546,7 @@
 <section class="hero" id="home">
   <div class="hero-badge" id="hero-badge">🌟 EARLY BIRD ถึง 17 มีนาคมนี้เท่านั้น!</div>
   <h1 class="fade-up">ลูกน้อยคือ<span>องครักษ์</span><br>ฝ่า 7 ด่าน ปกป้องเจี๊ยบ!</h1>
-  <p class="hero-sub">Tooniverse Balance Bike Adventure × Out of the Nest</p>
+  <p class="hero-sub">T&amp;B Kids × Cruzee Thailand × องครักษ์พิทักษ์เจี๊ยบ</p>
   <p class="hero-detail">
     <a href="https://maps.app.goo.gl/VoqzZcxUBTdogVKM9" target="_blank" style="color:var(--yellow-light);text-decoration:none;">📍 The Promenade รามอินทรา • ชั้น 1 🗺️</a>
     <span>📅 18–22 มีนาคม 2569</span>
@@ -550,6 +567,15 @@
   <div class="hero-btns">
     <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" id="btn-hero-register">🎟️ สมัครรับ Early Bird</a>
     <a href="#pricing" class="btn-secondary">ดูแพ็กเกจทั้งหมด ↓</a>
+  </div>
+
+  <!-- Highlight chips -->
+  <div class="hero-chips">
+    <span class="hero-chip">⚔️ 7 ด่านผจญภัย</span>
+    <span class="hero-chip">🧠 EF Workshop</span>
+    <span class="hero-chip">🗺️ เกมส์ล่าสมบัติ</span>
+    <span class="hero-chip">🐣 พบมาสคอต</span>
+    <span class="hero-chip hero-chip--new">✨ Field 2 ใหม่ + ด่าน Warrior</span>
   </div>
 
   <!-- Hero banner — ตัวละคร 7 ตัว -->
