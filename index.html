@@ -249,6 +249,15 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 0.8rem; font-weight: 900;
   }
+  .arena-char {
+    width: 100%; height: 140px; overflow: hidden;
+    background: linear-gradient(135deg, #e8f7ef, #d0f0e0);
+  }
+  .arena-char img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+    transition: transform 0.35s;
+  }
+  .arena-card:hover .arena-char img { transform: scale(1.08); }
   .arena-body { padding: 18px 20px; }
   .arena-icon { font-size: 2.5rem; margin-bottom: 10px; }
   .arena-name { font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--green-dark); }
@@ -484,7 +493,7 @@
       <div class="price-deadline">ไม่ต้องสมัครล่วงหน้า — จ่ายหน้างานได้เลย!</div>
       <ul class="price-features">
         <li><span class="chk">✓</span> ขี่จักรยานวนสนาม + ทำภารกิจย่อ 3 ด่าน</li>
-        <li><span class="chk">✓</span> รอบละ 15 นาที เล่นซ้ำได้ไม่จำกัด</li>
+        <li><span class="chk">✓</span> รอบละ 15 นาที • ซื้อเพิ่มได้เรื่อยๆ ไม่จำกัดรอบ</li>
         <li><span class="chk">✓</span> 🏅 เหรียญ "องครักษ์ฝึกหัด" กลับบ้าน</li>
         <li><span class="chk">✓</span> เล่นได้ทุกวัน 18–22 มีนาคม</li>
         <li><span class="chk" style="color:#666">–</span> <span style="opacity:0.5">ไม่รวมการแข่งขัน</span></li>
@@ -562,7 +571,7 @@
       </div>
     </div>
     <div class="story-img reveal">
-      <img src="CRUZEE_Backdrop.jpg" alt="Out of the Nest Backdrop" style="width:100%;height:380px;object-fit:cover;">
+      <img src="slide_title.jpg" alt="Tooniverse — ตัวละคร 7 ตัว" style="width:100%;height:380px;object-fit:cover;object-position:center center;">
     </div>
   </div>
 </div>
@@ -579,6 +588,7 @@
     <!-- Arena 1 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">1</div> ด่านเทอรา</div>
+      <div class="arena-char"><img src="arena1_terra.jpg" alt="เทอรา"></div>
       <div class="arena-body">
         <div class="arena-icon">🌿</div>
         <div class="arena-name">ตาข่ายหรรษา</div>
@@ -591,6 +601,7 @@
     <!-- Arena 2 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">2</div> ด่านสปาร์ค</div>
+      <div class="arena-char"><img src="arena2_spark.jpg" alt="สปาร์ค"></div>
       <div class="arena-body">
         <div class="arena-icon">⚡</div>
         <div class="arena-name">หลุมยางเอาแต่ใจ</div>
@@ -603,6 +614,7 @@
     <!-- Arena 3 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">3</div> ด่านพัดเดิล</div>
+      <div class="arena-char"><img src="arena3_puddle.jpg" alt="พัดเดิล"></div>
       <div class="arena-body">
         <div class="arena-icon">💧</div>
         <div class="arena-name">ปีนผาไถลดิน</div>
@@ -615,6 +627,7 @@
     <!-- Arena 4 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">4</div> ด่านพัฟ</div>
+      <div class="arena-char"><img src="arena4_puff.jpg" alt="พัฟ"></div>
       <div class="arena-body">
         <div class="arena-icon">☁️</div>
         <div class="arena-name">อุโมงค์เถาวัลย์</div>
@@ -627,6 +640,7 @@
     <!-- Arena 5 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">5</div> ด่านทิน</div>
+      <div class="arena-char"><img src="arena5_tin.jpg" alt="ทิน"></div>
       <div class="arena-body">
         <div class="arena-icon">🔩</div>
         <div class="arena-name">จิ๊กซอว์เพอร์เฟค</div>
@@ -639,6 +653,7 @@
     <!-- Arena 6 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">6</div> ด่านทวิก</div>
+      <div class="arena-char"><img src="arena6_twig.jpg" alt="ทวิก"></div>
       <div class="arena-body">
         <div class="arena-icon">🌱</div>
         <div class="arena-name">บ่อบอลสีสดใส</div>
@@ -651,6 +666,7 @@
     <!-- Arena 7 -->
     <div class="arena-card reveal" style="border-color:var(--orange)">
       <div class="arena-num" style="background:var(--orange-dark)"><div class="arena-num-badge" style="background:white;color:var(--orange-dark)">7</div> ด่านลีฟ</div>
+      <div class="arena-char"><img src="arena7_leaf.jpg" alt="ลีฟ"></div>
       <div class="arena-body">
         <div class="arena-icon">🍃</div>
         <div class="arena-name">นักซิ่งวิ่งสู้ฟัด</div>
@@ -731,18 +747,13 @@
   <p class="section-subtitle" style="text-align:center;color:rgba(255,255,255,0.6)">ดูหน้าเขาสิ... ไม่มีคำไหนอธิบายได้ดีกว่าภาพนี้ 🥹</p>
 
   <div class="gallery-grid">
-    <div class="gallery-item wide g-height-280"><img src="gallery_01.jpg" alt="บรรยากาศงาน"></div>
+    <div class="gallery-item wide g-height-280"><img src="event_action.jpg" alt="บรรยากาศแข่งขันจาก Field 1"></div>
+    <div class="gallery-item g-height-280"><img src="gallery_01.jpg" alt="บรรยากาศงาน"></div>
     <div class="gallery-item g-height-280"><img src="photo_race3.jpg" alt="เด็กแข่งขัน"></div>
-    <div class="gallery-item g-height-280"><img src="photo_ride2.jpg" alt="เด็กรับรางวัล"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_03.jpg" alt="เด็กในสนาม"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_04.jpg" alt="กิจกรรม"></div>
-    <div class="gallery-item g-height-200"><img src="photo_race5.jpg" alt="เด็กขี่จักรยาน"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_05.jpg" alt="เด็กสนุก"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_06.jpg" alt="กิจกรรมเด็ก"></div>
-    <div class="gallery-item g-height-200"><img src="photo_ride1.jpg" alt="เด็กปั่น"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_07.jpg" alt="รับรางวัล"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_08.jpg" alt="ครอบครัวสนุก"></div>
-    <div class="gallery-item g-height-200"><img src="gallery_02.jpg" alt="เด็กปั่น 2"></div>
+    <div class="gallery-item wide g-height-280"><img src="event_race.jpg" alt="การแข่งขัน + โพเดียม"></div>
+    <div class="gallery-item g-height-280"><img src="photo_race4.jpg" alt="เด็กในสนาม"></div>
+    <div class="gallery-item wide g-height-280"><img src="event_mascot.jpg" alt="Mascot Show สุดน่ารัก"></div>
+    <div class="gallery-item g-height-280"><img src="photo_ride1.jpg" alt="เด็กปั่น"></div>
   </div>
 </div>
 </section>
