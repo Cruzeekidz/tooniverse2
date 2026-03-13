@@ -142,6 +142,8 @@
     color: #fca5a5;
   }
 
+  /* Hero image strip */
+  /* Hero banner — ใต้ปุ่ม */
   .hero-banner {
     width: 100%; max-width: 860px; margin: 0 auto;
     border-radius: 20px; overflow: hidden;
@@ -184,6 +186,157 @@
   }
   .section-subtitle { color: var(--text-gray); font-size: 1.05rem; line-height: 1.7; }
 
+  /* ─── EARLY BIRD PRICING ─── */
+  .pricing-section { background: var(--green-dark); }
+  .pricing-section .section-title { color: white; }
+  .pricing-section .section-subtitle { color: rgba(255,255,255,0.7); }
+  .pricing-section .section-tag { background: var(--yellow); color: var(--green-dark); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+  .price-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 30px 24px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    color: white;
+  }
+  .price-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+  .price-card.featured {
+    background: linear-gradient(135deg, rgba(255,208,0,0.12), rgba(255,107,53,0.08));
+    border-color: var(--yellow);
+  }
+  .featured-label {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--yellow); color: var(--green-dark);
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 0.8rem;
+    padding: 4px 16px; border-radius: 20px; white-space: nowrap;
+  }
+  .price-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .price-name { font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 6px; }
+  .price-amount-wrap { margin-bottom: 6px; }
+  .price-early {
+    font-family: 'Kanit', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--yellow);
+    line-height: 1;
+  }
+  .price-normal { color: rgba(255,255,255,0.45); font-size: 0.9rem; text-decoration: line-through; margin-left: 6px; }
+  .price-deadline { color: var(--orange); font-size: 0.82rem; font-weight: 600; margin-bottom: 16px; }
+  .price-features { list-style: none; margin-bottom: 20px; }
+  .price-features li {
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 0.95rem; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+  }
+  .price-features li:last-child { border: none; }
+  .price-features .chk { color: var(--green-light); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .btn-price {
+    display: block; text-align: center; width: 100%;
+    background: var(--yellow); color: var(--green-dark);
+    padding: 13px; border-radius: 12px;
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1rem;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-price:hover { background: var(--orange); color: white; }
+  .btn-price.outline {
+    background: transparent; color: rgba(255,255,255,0.7);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+  .btn-price.outline:hover { border-color: var(--yellow); color: var(--yellow); background: transparent; }
+
+
+  /* ─── PACKAGE BENEFITS ─── */
+  /* Reward showcase */
+  .reward-showcase {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin: 36px 0 32px;
+  }
+  .reward-img-wrap {
+    border-radius: 16px; overflow: hidden;
+    background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .reward-img-wrap img {
+    width: 100%; height: 220px; object-fit: cover; object-position: center;
+    display: block;
+  }
+  .reward-caption {
+    padding: 12px; font-family: Kanit, sans-serif; font-weight: 700;
+    font-size: 0.92rem; color: var(--green-dark); line-height: 1.4;
+  }
+  .reward-caption span { font-weight: 400; font-size: 0.8rem; color: var(--text-gray); }
+  @media (max-width: 600px) {
+    .reward-showcase { grid-template-columns: 1fr; }
+    .reward-img-wrap img { height: 200px; }
+  }
+
+  .benefits-section { background: var(--cream); padding: 60px 0 40px; }
+  .benefits-section .section-tag { background: var(--green-mid); }
+  .benefits-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;
+  }
+  .benefit-col {
+    background: white; border-radius: 20px; padding: 24px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border: 2px solid #e0f0e8;
+    display: flex; flex-direction: column;
+  }
+  .benefit-col.featured-col {
+    border-color: var(--yellow); box-shadow: 0 8px 32px rgba(255,208,0,0.2);
+    transform: translateY(-6px);
+  }
+  .benefit-col-header {
+    text-align: center; padding-bottom: 16px; margin-bottom: 16px;
+    border-bottom: 1px dashed #dceee4;
+  }
+  .benefit-col-icon { font-size: 2rem; margin-bottom: 6px; }
+  .benefit-col-name {
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1rem;
+    color: var(--green-dark);
+  }
+  .benefit-col-price { font-size: 0.85rem; color: var(--text-gray); margin-top: 2px; }
+  .benefit-list { list-style: none; flex: 1; }
+  .benefit-list li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 0.88rem; color: var(--text-dark); padding: 5px 0;
+    border-bottom: 1px solid #f0f8f3; line-height: 1.4;
+  }
+  .benefit-list li:last-child { border: none; }
+  .benefit-list .bchk { color: var(--green-mid); font-weight: 700; flex-shrink: 0; }
+  .benefit-list .bstar { color: var(--yellow); font-weight: 700; flex-shrink: 0; }
+  .benefit-list .bno { color: #ccc; flex-shrink: 0; }
+  .benefit-highlight {
+    margin-top: 32px; background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
+    border-radius: 20px; padding: 28px 32px;
+    display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+    box-shadow: 0 8px 32px rgba(26,77,46,0.2);
+  }
+  .benefit-highlight-icon { font-size: 3rem; flex-shrink: 0; }
+  .benefit-highlight-text { flex: 1; min-width: 200px; }
+  .benefit-highlight-text h3 {
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.2rem;
+    color: var(--yellow); margin-bottom: 6px;
+  }
+  .benefit-highlight-text p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; }
+  .benefit-early-badge {
+    background: var(--orange); color: white;
+    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.8rem;
+    padding: 6px 14px; border-radius: 20px; display: inline-block; margin-top: 8px;
+  }
+
+  /* ─── MID-PAGE CTA STRIP ─── */
+  .cta-strip {
+    background: linear-gradient(135deg, var(--orange-dark), var(--orange));
+    padding: 36px 20px; text-align: center;
+  }
+  .cta-strip h3 {
+    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: clamp(1.2rem, 3vw, 1.7rem);
+    color: white; margin-bottom: 8px;
+  }
+  .cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 20px; font-size: 0.95rem; }
+
+  @media (max-width: 768px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .benefit-col.featured-col { transform: none; }
+    .benefit-highlight { gap: 16px; padding: 20px; }
+  }
   /* ─── STORY ─── */
   .story-section { background: var(--cream); }
   .story-inner {
@@ -283,127 +436,6 @@
   .g-height-410 img { height: 410px; }
   .g-height-280 img { height: 280px; }
 
-  /* ─── MID-PAGE CTA STRIP ─── */
-  .cta-strip {
-    background: linear-gradient(135deg, var(--orange-dark), var(--orange));
-    padding: 36px 20px; text-align: center;
-  }
-  .cta-strip h3 {
-    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: clamp(1.2rem, 3vw, 1.7rem);
-    color: white; margin-bottom: 8px;
-  }
-  .cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 20px; font-size: 0.95rem; }
-
-  /* ─── EARLY BIRD PRICING ─── */
-  .pricing-section { background: var(--green-dark); }
-  .pricing-section .section-title { color: white; }
-  .pricing-section .section-subtitle { color: rgba(255,255,255,0.7); }
-  .pricing-section .section-tag { background: var(--yellow); color: var(--green-dark); }
-  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-  .price-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px; padding: 30px 24px;
-    transition: transform 0.25s, box-shadow 0.25s;
-    position: relative;
-    color: white;
-  }
-  .price-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
-  .price-card.featured {
-    background: linear-gradient(135deg, rgba(255,208,0,0.12), rgba(255,107,53,0.08));
-    border-color: var(--yellow);
-  }
-  .featured-label {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: var(--yellow); color: var(--green-dark);
-    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 0.8rem;
-    padding: 4px 16px; border-radius: 20px; white-space: nowrap;
-  }
-  .price-icon { font-size: 2.5rem; margin-bottom: 12px; }
-  .price-name { font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 6px; }
-  .price-amount-wrap { margin-bottom: 6px; }
-  .price-early {
-    font-family: 'Kanit', sans-serif; font-size: 2.4rem; font-weight: 900; color: var(--yellow);
-    line-height: 1;
-  }
-  .price-normal { color: rgba(255,255,255,0.45); font-size: 0.9rem; text-decoration: line-through; margin-left: 6px; }
-  .price-deadline { color: var(--orange); font-size: 0.82rem; font-weight: 600; margin-bottom: 16px; }
-  .price-features { list-style: none; margin-bottom: 20px; }
-  .price-features li {
-    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-    font-size: 0.95rem; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
-  }
-  .price-features li:last-child { border: none; }
-  .price-features .chk { color: var(--green-light); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-  .btn-price {
-    display: block; text-align: center; width: 100%;
-    background: var(--yellow); color: var(--green-dark);
-    padding: 13px; border-radius: 12px;
-    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1rem;
-    text-decoration: none; transition: all 0.2s;
-  }
-  .btn-price:hover { background: var(--orange); color: white; }
-  .btn-price.outline {
-    background: transparent; color: rgba(255,255,255,0.7);
-    border: 2px solid rgba(255,255,255,0.3);
-  }
-  .btn-price.outline:hover { border-color: var(--yellow); color: var(--yellow); background: transparent; }
-
-  /* ─── PACKAGE BENEFITS ─── */
-  .benefits-section { background: var(--cream); padding: 60px 0 40px; }
-  .benefits-section .section-tag { background: var(--green-mid); }
-  .benefits-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;
-  }
-  .benefit-col {
-    background: white; border-radius: 20px; padding: 24px 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    border: 2px solid #e0f0e8;
-    display: flex; flex-direction: column;
-  }
-  .benefit-col.featured-col {
-    border-color: var(--yellow); box-shadow: 0 8px 32px rgba(255,208,0,0.2);
-    transform: translateY(-6px);
-  }
-  .benefit-col-header {
-    text-align: center; padding-bottom: 16px; margin-bottom: 16px;
-    border-bottom: 1px dashed #dceee4;
-  }
-  .benefit-col-icon { font-size: 2rem; margin-bottom: 6px; }
-  .benefit-col-name {
-    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1rem;
-    color: var(--green-dark);
-  }
-  .benefit-col-price { font-size: 0.85rem; color: var(--text-gray); margin-top: 2px; }
-  .benefit-list { list-style: none; flex: 1; }
-  .benefit-list li {
-    display: flex; align-items: flex-start; gap: 8px;
-    font-size: 0.88rem; color: var(--text-dark); padding: 5px 0;
-    border-bottom: 1px solid #f0f8f3; line-height: 1.4;
-  }
-  .benefit-list li:last-child { border: none; }
-  .benefit-list .bchk { color: var(--green-mid); font-weight: 700; flex-shrink: 0; }
-  .benefit-list .bstar { color: var(--yellow); font-weight: 700; flex-shrink: 0; }
-  .benefit-list .bno { color: #ccc; flex-shrink: 0; }
-  .benefit-highlight {
-    margin-top: 32px; background: linear-gradient(135deg, #1a4d2e, #2d7a4f);
-    border-radius: 20px; padding: 28px 32px;
-    display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
-    box-shadow: 0 8px 32px rgba(26,77,46,0.2);
-  }
-  .benefit-highlight-icon { font-size: 3rem; flex-shrink: 0; }
-  .benefit-highlight-text { flex: 1; min-width: 200px; }
-  .benefit-highlight-text h3 {
-    font-family: 'Kanit', sans-serif; font-weight: 800; font-size: 1.2rem;
-    color: var(--yellow); margin-bottom: 6px;
-  }
-  .benefit-highlight-text p { color: rgba(255,255,255,0.85); font-size: 0.9rem; line-height: 1.6; }
-  .benefit-early-badge {
-    background: var(--orange); color: white;
-    font-family: 'Kanit', sans-serif; font-weight: 700; font-size: 0.8rem;
-    padding: 6px 14px; border-radius: 20px; display: inline-block; margin-top: 8px;
-  }
-
   /* ─── SCHEDULE ─── */
   .schedule-section { background: var(--cream); }
   .schedule-section .section-tag { background: var(--green-mid); }
@@ -425,6 +457,7 @@
   }
   .schedule-list li:last-child { border: none; }
   .schedule-list .time { color: var(--green-mid); font-weight: 700; flex-shrink: 0; min-width: 60px; }
+  /* Age table */
   .age-table { width: 100%; border-collapse: collapse; margin-top: 32px; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
   .age-table th {
     background: var(--green-dark); color: var(--yellow);
@@ -457,7 +490,10 @@
   .faq-section { background: white; }
   .faq-section .section-tag { background: var(--orange); }
   .faq-list { max-width: 760px; margin: 36px auto 0; }
-  .faq-item { border-bottom: 1px solid #e8e8e8; overflow: hidden; }
+  .faq-item {
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+  }
   .faq-q {
     width: 100%; background: none; border: none; text-align: left; cursor: pointer;
     padding: 18px 4px; display: flex; justify-content: space-between; align-items: center;
@@ -506,7 +542,7 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .story-inner, .map-inner, .schedule-grid { grid-template-columns: 1fr; }
-    .hero-images { display: none; }
+  .hero-images { display: none; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-item.tall { grid-row: span 1; }
     .gallery-item.wide { grid-column: span 2; }
@@ -515,11 +551,9 @@
     .pricing-grid { grid-template-columns: 1fr; }
     .story-chars { grid-template-columns: repeat(4, 1fr); }
     .ef-grid { grid-template-columns: repeat(2, 1fr); }
-    .benefits-grid { grid-template-columns: 1fr; }
-    .benefit-col.featured-col { transform: none; }
-    .benefit-highlight { gap: 16px; padding: 20px; }
   }
 
+  /* ─── SCROLL REVEAL ANIMATION STUBS ─── */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 </style>
@@ -532,7 +566,7 @@
   <a href="https://ready-go.fun/e/TNV2" class="nav-cta" target="_blank">สมัครเลย →</a>
 </nav>
 
-<!-- ═══ 1. HERO ═══ -->
+<!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-badge" id="hero-badge">🌟 EARLY BIRD ถึง 17 มีนาคมนี้เท่านั้น!</div>
   <h1 class="fade-up">ลูกน้อยคือ<span>องครักษ์</span><br>ฝ่า 7 ด่าน ปกป้องเจี๊ยบ!</h1>
@@ -556,10 +590,10 @@
 
   <div class="hero-btns">
     <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" id="btn-hero-register">🎟️ สมัครรับ Early Bird</a>
-    <!-- ★ เปลี่ยน: ชี้ไปที่เรื่องราวแทนราคา -->
-    <a href="#about" class="btn-secondary">ดูการผจญภัย ↓</a>
+    <a href="#pricing" class="btn-secondary">ดูแพ็กเกจทั้งหมด ↓</a>
   </div>
 
+  <!-- Highlight chips -->
   <div class="hero-chips">
     <span class="hero-chip">⚔️ 7 ด่านผจญภัย</span>
     <span class="hero-chip">🧠 EF Workshop</span>
@@ -568,12 +602,13 @@
     <span class="hero-chip hero-chip--new">✨ Field 2 ใหม่ + ด่าน Warrior</span>
   </div>
 
+  <!-- Hero banner — ตัวละคร 7 ตัว -->
   <div class="hero-banner">
     <img src="slide_title.jpg" alt="Tooniverse Balance Bike Racing — ตัวละคร 7 ตัว">
   </div>
 </section>
 
-<!-- ═══ 2. STORY (เรื่องราว — ดึงอารมณ์ก่อน!) ═══ -->
+<!-- ═══ STORY ═══ -->
 <section class="story-section" id="about">
 <div class="container">
   <div class="story-inner">
@@ -600,7 +635,7 @@
 </div>
 </section>
 
-<!-- ═══ 3. 7 ARENAS (สีสัน ตัวละคร — "ว้าว!") ═══ -->
+<!-- ═══ 7 ARENAS ═══ -->
 <section class="arenas-section" id="arenas">
 <div class="container">
   <div style="text-align:center;margin-bottom:8px"><span class="section-tag">🗺️ 7 ด่านผจญภัย</span></div>
@@ -608,6 +643,7 @@
   <p class="section-subtitle" style="text-align:center;max-width:600px;margin:0 auto">เด็กๆ จะได้สนุกจนลืมว่ากำลัง "เรียนรู้" อยู่ — ทุกด่านออกแบบมาเพื่อพัฒนา EF Skills อย่างแยบยล</p>
 
   <div class="arenas-grid">
+    <!-- Arena 1 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">1</div> ด่านเทอรา</div>
       <div class="arena-char"><img src="arena1_terra.jpg" alt="เทอรา"></div>
@@ -620,6 +656,7 @@
         <span class="arena-skill">การวางแผน</span>
       </div>
     </div>
+    <!-- Arena 2 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">2</div> ด่านสปาร์ค</div>
       <div class="arena-char"><img src="arena2_spark.jpg" alt="สปาร์ค"></div>
@@ -632,6 +669,7 @@
         <span class="arena-skill">ควบคุมอารมณ์</span>
       </div>
     </div>
+    <!-- Arena 3 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">3</div> ด่านพัดเดิล</div>
       <div class="arena-char"><img src="arena3_puddle.jpg" alt="พัดเดิล"></div>
@@ -644,6 +682,7 @@
         <span class="arena-skill">ใช้กำลังอย่างเหมาะสม</span>
       </div>
     </div>
+    <!-- Arena 4 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">4</div> ด่านพัฟ</div>
       <div class="arena-char"><img src="arena4_puff.jpg" alt="พัฟ"></div>
@@ -656,6 +695,7 @@
         <span class="arena-skill">การวางแผนจังหวะ</span>
       </div>
     </div>
+    <!-- Arena 5 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">5</div> ด่านทิน</div>
       <div class="arena-char"><img src="arena5_tin.jpg" alt="ทิน"></div>
@@ -668,6 +708,7 @@
         <span class="arena-skill">ความแม่นยำ</span>
       </div>
     </div>
+    <!-- Arena 6 -->
     <div class="arena-card reveal">
       <div class="arena-num"><div class="arena-num-badge">6</div> ด่านทวิก</div>
       <div class="arena-char"><img src="arena6_twig.jpg" alt="ทวิก"></div>
@@ -680,6 +721,7 @@
         <span class="arena-skill">ความแม่นยำ</span>
       </div>
     </div>
+    <!-- Arena 7 -->
     <div class="arena-card reveal" style="border-color:var(--orange)">
       <div class="arena-num" style="background:var(--orange-dark)"><div class="arena-num-badge" style="background:white;color:var(--orange-dark)">7</div> ด่านลีฟ</div>
       <div class="arena-char"><img src="arena7_leaf.jpg" alt="ลีฟ"></div>
@@ -692,6 +734,7 @@
         <span class="arena-skill">จัดการความกลัว</span>
       </div>
     </div>
+    <!-- Grand Cup -->
     <div class="arena-card reveal" style="background:linear-gradient(135deg,#fff8e1,#fff3cd);border-color:var(--yellow)">
       <div class="arena-num" style="background:var(--green-dark)"><div class="arena-num-badge">🏆</div> Grand Cup Final</div>
       <div class="arena-body">
@@ -706,7 +749,7 @@
 </div>
 </section>
 
-<!-- ═══ 4. EF SKILLS (คุณค่าลึก — "ไม่ใช่แค่เล่น") ═══ -->
+<!-- ═══ EF SKILLS ═══ -->
 <section class="ef-section">
 <div class="container">
   <div style="text-align:center"><span class="section-tag">🧠 สิ่งที่ลูกจะได้</span></div>
@@ -754,7 +797,8 @@
 </div>
 </section>
 
-<!-- ═══ 5. GALLERY (social proof — เด็กยิ้ม!) ═══ -->
+
+<!-- ═══ GALLERY ═══ -->
 <section class="gallery-section">
 <div class="gallery-inner container">
   <div style="text-align:center"><span class="section-tag" style="background:var(--yellow);color:var(--green-dark)">📸 บรรยากาศงาน</span></div>
@@ -769,20 +813,12 @@
     <div class="gallery-item g-height-280"><img src="photo_race4.jpg" alt="เด็กในสนาม"></div>
     <div class="gallery-item wide g-height-280"><img src="event_mascot.jpg" alt="Mascot Show สุดน่ารัก"></div>
     <div class="gallery-item g-height-280"><img src="photo_ride1.jpg" alt="เด็กปั่น"></div>
+    <div class="gallery-item g-height-280"><img src="reward_podium.jpg" alt="พิธีรับรางวัลบนโพเดียม"></div>
   </div>
 </div>
 </section>
 
-<!-- ═══ 6. MID CTA STRIP (ตอนนี้อยากได้แล้ว — พาไปราคา!) ═══ -->
-<div class="cta-strip">
-  <div class="container">
-    <h3 id="mid-cta-title">🏁 สนามรอลูกอยู่ — Early Bird หมด 17 มีนาคมนี้!</h3>
-    <p id="mid-cta-desc">สมัครตอนนี้ยังทันได้ราคาพิเศษ + ป้ายเบอร์พิมพ์ชื่อสวยงาม</p>
-    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" id="mid-cta-btn">🎟️ สมัครรับ Early Bird ตอนนี้</a>
-  </div>
-</div>
-
-<!-- ═══ 7. PRICING (ตอนนี้ 990 บาทรู้สึก "คุ้มมาก!") ═══ -->
+<!-- ═══ PRICING (Early Bird) ═══ -->
 <section class="pricing-section" id="pricing">
 <div class="container">
   <div style="text-align:center;margin-bottom:8px"><span class="section-tag">💰 แพ็กเกจ & ราคา</span></div>
@@ -858,7 +894,17 @@
 </div>
 </section>
 
-<!-- ═══ 8. PACKAGE BENEFITS ═══ -->
+
+<!-- ═══ MID CTA STRIP ═══ -->
+<div class="cta-strip">
+  <div class="container">
+    <h3 id="mid-cta-title">🏁 สนามรอลูกอยู่ — Early Bird หมด 17 มีนาคมนี้!</h3>
+    <p id="mid-cta-desc">สมัครตอนนี้ยังทันได้ราคาพิเศษ + ป้ายเบอร์พิมพ์ชื่อสวยงาม</p>
+    <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" id="mid-cta-btn">🎟️ สมัครรับ Early Bird ตอนนี้</a>
+  </div>
+</div>
+
+<!-- ═══ PACKAGE BENEFITS ═══ -->
 <section class="benefits-section">
 <div class="container">
   <div style="text-align:center;margin-bottom:8px"><span class="section-tag">🎁 สิ่งที่ลูกได้รับ</span></div>
@@ -866,6 +912,7 @@
   <p class="section-subtitle" style="text-align:center">ทุกแพ็กเกจมีของที่ระลึกกลับบ้าน — Experience Pack มาพร้อมชุดแข่ง Limited Edition</p>
 
   <div class="benefits-grid reveal">
+    <!-- Walk-in -->
     <div class="benefit-col">
       <div class="benefit-col-header">
         <div class="benefit-col-icon">🎠</div>
@@ -882,6 +929,8 @@
         <li><span class="bno">–</span> <span style="opacity:0.4">ไม่รวมชุดแข่ง</span></li>
       </ul>
     </div>
+
+    <!-- Starter -->
     <div class="benefit-col">
       <div class="benefit-col-header">
         <div class="benefit-col-icon">⭐</div>
@@ -899,6 +948,8 @@
         <li><span class="bno">–</span> <span style="opacity:0.4">ไม่รวมชุดแข่ง</span></li>
       </ul>
     </div>
+
+    <!-- Experience -->
     <div class="benefit-col featured-col">
       <div class="benefit-col-header">
         <div class="benefit-col-icon">🏆</div>
@@ -919,6 +970,23 @@
     </div>
   </div>
 
+  <!-- Reward images -->
+  <div class="reward-showcase reveal">
+    <div class="reward-img-wrap">
+      <img src="reward_medal.jpg" alt="เหรียญผู้พิชิต Tooniverse Racing">
+      <div class="reward-caption">🏅 เหรียญผู้พิชิต<br><span>ทุกคนที่ลงแข่งได้กลับบ้าน</span></div>
+    </div>
+    <div class="reward-img-wrap">
+      <img src="reward_trophy.jpg" alt="โล่รางวัลอันดับ 1-4" style="object-fit:contain;background:#f0f4f0;padding:8px">
+      <div class="reward-caption">🏆 โล่รางวัลอันดับ 1–3<br><span>+ โล่พิเศษ 1 รางวัลต่อรุ่น</span></div>
+    </div>
+    <div class="reward-img-wrap">
+      <img src="reward_podium.jpg" alt="พิธีมอบรางวัลบนโพเดียม">
+      <div class="reward-caption">🎉 พิธีรับรางวัลบนโพเดียม<br><span>ความทรงจำที่ครอบครัวจะไม่ลืม</span></div>
+    </div>
+  </div>
+
+  <!-- Early Bird highlight -->
   <div class="benefit-highlight reveal" id="eb-benefit-highlight">
     <div class="benefit-highlight-icon">⏰</div>
     <div class="benefit-highlight-text">
@@ -931,7 +999,7 @@
 </div>
 </section>
 
-<!-- ═══ 9. SCHEDULE & AGE CATEGORIES ═══ -->
+<!-- ═══ SCHEDULE & AGE CATEGORIES ═══ -->
 <section class="schedule-section" id="schedule">
 <div class="container">
   <div style="text-align:center"><span class="section-tag">📅 ตารางกิจกรรม</span></div>
@@ -970,24 +1038,57 @@
     </div>
   </div>
 
+  <!-- Age Categories -->
   <h3 style="font-family:'Kanit',sans-serif;font-size:1.4rem;font-weight:800;margin:40px 0 16px;text-align:center;color:var(--green-dark)">รุ่นการแข่งขัน</h3>
   <table class="age-table reveal">
     <thead>
-      <tr><th>รุ่น</th><th>ช่วงอายุ</th><th>หมวด</th><th>รายละเอียด</th></tr>
+      <tr>
+        <th>รุ่น</th><th>ช่วงอายุ</th><th>หมวด</th><th>รายละเอียด</th>
+      </tr>
     </thead>
     <tbody>
-      <tr><td><strong>Little Chick Racing</strong></td><td>2–3 ปี</td><td><span class="age-badge little">Little Chick</span></td><td>+ ผู้ปกครอง 1 ท่านลงแข่งด้วยกัน • 14.00–14.40 น.</td></tr>
-      <tr><td><strong>Little Chick Racing</strong></td><td>3–4 ปี</td><td><span class="age-badge little">Little Chick</span></td><td>แข่งพร้อมกัน 4–6 คน/รอบ • 14.40–15.10 น.</td></tr>
-      <tr><td><strong>Little Chick Racing</strong></td><td>4–5 ปี</td><td><span class="age-badge little">Little Chick</span></td><td>แข่งพร้อมกัน 4–6 คน/รอบ • 15.10–16.00 น.</td></tr>
-      <tr><td><strong>Junior Chick Racing</strong></td><td>5–6 ปี</td><td><span class="age-badge junior">Junior Chick</span></td><td>แข่งพร้อมกัน 4–6 คน/รอบ • 11.00–11.30 น.</td></tr>
-      <tr><td><strong>Junior Chick Racing</strong></td><td>6–7 ปี</td><td><span class="age-badge junior">Junior Chick</span></td><td>แข่งพร้อมกัน 4–6 คน/รอบ • 11.30–12.00 น.</td></tr>
-      <tr><td><strong>Junior Chick Racing Open</strong></td><td>ไม่เกิน 10 ปี</td><td><span class="age-badge junior">Junior Chick</span></td><td>เปิดกว้าง ทุกระดับทักษะ • 12.00–12.30 น.</td></tr>
+      <tr>
+        <td><strong>Little Chick Racing</strong></td>
+        <td>2–3 ปี</td>
+        <td><span class="age-badge little">Little Chick</span></td>
+        <td>+ ผู้ปกครอง 1 ท่านลงแข่งด้วยกัน • 14.00–14.40 น.</td>
+      </tr>
+      <tr>
+        <td><strong>Little Chick Racing</strong></td>
+        <td>3–4 ปี</td>
+        <td><span class="age-badge little">Little Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 14.40–15.10 น.</td>
+      </tr>
+      <tr>
+        <td><strong>Little Chick Racing</strong></td>
+        <td>4–5 ปี</td>
+        <td><span class="age-badge little">Little Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 15.10–16.00 น.</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chick Racing</strong></td>
+        <td>5–6 ปี</td>
+        <td><span class="age-badge junior">Junior Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 11.00–11.30 น.</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chick Racing</strong></td>
+        <td>6–7 ปี</td>
+        <td><span class="age-badge junior">Junior Chick</span></td>
+        <td>แข่งพร้อมกัน 4–6 คน/รอบ • 11.30–12.00 น.</td>
+      </tr>
+      <tr>
+        <td><strong>Junior Chick Racing Open</strong></td>
+        <td>ไม่เกิน 10 ปี</td>
+        <td><span class="age-badge junior">Junior Chick</span></td>
+        <td>เปิดกว้าง ทุกระดับทักษะ • 12.00–12.30 น.</td>
+      </tr>
     </tbody>
   </table>
 </div>
 </section>
 
-<!-- ═══ 10. MAP & VENUE ═══ -->
+<!-- ═══ MAP & VENUE ═══ -->
 <section class="map-section" id="venue">
 <div class="container">
   <div style="text-align:center"><span class="section-tag">📍 สถานที่</span></div>
@@ -1039,7 +1140,7 @@
 </div>
 </section>
 
-<!-- ═══ 11. FAQ ═══ -->
+<!-- ═══ FAQ ═══ -->
 <section class="faq-section">
 <div class="container">
   <div style="text-align:center"><span class="section-tag">❓ คำถามที่พบบ่อย</span></div>
@@ -1047,38 +1148,59 @@
 
   <div class="faq-list">
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">ลูกไม่เคยแข่งมาก่อน — มาได้ไหม?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ลูกไม่เคยแข่งมาก่อน — มาได้ไหม?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">ได้เลยค่ะ! กิจกรรมนี้ออกแบบมาสำหรับเด็กทุกระดับทักษะ รุ่นแยกตามอายุละเอียดมาก เด็กๆ แข่งกับคนวัยใกล้เคียงกัน และ<strong>ทุกคนที่ลงสนามได้รับ 🏅 เหรียญผู้พิชิตกลับบ้านแน่นอน</strong> — เพราะเขาทำภารกิจสำเร็จแล้ว นั่นคือชัยชนะในแบบของตัวเองค่ะ</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">ถ้าแพ้ในรอบแรก ยังได้อะไรบ้าง?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ถ้าแพ้ในรอบแรก ยังได้อะไรบ้าง?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">ยังไม่จบค่ะ! เด็กๆ จะได้<strong>แก้ตัวอีก 1 รอบ</strong> เพื่อทำเวลาให้ดีกว่าเดิม และมีโอกาส<strong>กลับเข้ารอบใหม่</strong>ได้ค่ะ 💪<br><br>และไม่ว่าผลจะเป็นอย่างไร — <strong>🏅 เหรียญผู้พิชิต</strong>รอทุกคนอยู่แน่นอน เพราะแค่กล้าลงสนามก็คือชนะแล้ว<br><br>โล่รางวัลสำหรับอันดับ 1–3 ในรุ่น และมีโล่พิเศษสำหรับรางวัลพิเศษ เช่น น้ำใจนักกีฬา หรือกล้าหาญ ค่ะ</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">ผู้ปกครองลงสนามด้วยได้ไหม?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ผู้ปกครองลงสนามด้วยได้ไหม?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">รุ่น Little Chick 2–3 ปี ผู้ปกครอง 1 ท่านลงสนามพร้อมลูกได้ค่ะ — คอยเป็นกำลังใจข้างๆ และประคองเล็กน้อยเพื่อความปลอดภัยได้<br><br>แต่ขอให้<strong>ให้ลูกทำทุกอย่างด้วยตัวเอง</strong> ไม่ดึง ไม่ลาก ไม่หิ้ว และไม่ช่วยลูกผ่านด่านนะคะ 🙏<br><br>นั่นคือโมเมนต์สำคัญที่ลูกจะได้<strong>ค้นพบศักยภาพของตัวเอง</strong> และความภาคภูมิใจนั้นต้องเป็นของเขาคนเดียวค่ะ ✨</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">ซื้อ Walk-in แล้วอยากแข่ง upgrade ได้ไหม?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ซื้อ Walk-in แล้วอยากแข่ง upgrade ได้ไหม?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">ได้เลยค่ะ! สามารถ Upgrade เป็น Starter หรือ Experience Pack ได้หน้างาน (ราคาปกติ ไม่ใช่ Early Bird) แนะนำสมัครล่วงหน้าเพื่อรับราคา Early Bird จะคุ้มกว่ามากค่ะ</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">ไม่มีจักรยานทำอย่างไร?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        ไม่มีจักรยานทำอย่างไร?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">ยืมจักรยาน Cruzee ได้หน้างานค่ะ มีให้บริการทุกขนาด พร้อมอุปกรณ์ความปลอดภัย (หมวก ฯลฯ) จำหน่ายหน้างานด้วย</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">วันแข่ง 21 กับ 22 ต่างกันไหม?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        วันแข่ง 21 กับ 22 ต่างกันไหม?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">กิจกรรมทั้งสองวันเหมือนกันทุกอย่างค่ะ — เลือกวันที่สะดวก หรือจะมาทั้ง 2 วันก็ได้ เพราะแข่งเป็นรอบๆ ช่วงเวลาว่างก็เปิดสนามเล่น Walk-in ให้เด็กปิดเทอมได้สนุกตลอดวัน</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">สมาชิกเก่าต้องกรอกข้อมูลใหม่ไหม?<span class="faq-icon">+</span></button>
+      <button class="faq-q" onclick="toggleFaq(this)">
+        สมาชิกเก่าต้องกรอกข้อมูลใหม่ไหม?
+        <span class="faq-icon">+</span>
+      </button>
       <div class="faq-a">ไม่ต้องค่ะ! ใส่เบอร์โทรเดิมที่เคยสมัครไว้ ระบบดึงข้อมูลให้อัตโนมัติ สะดวกสบายมากค่ะ ✅</div>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ═══ 12. FINAL CTA ═══ -->
+<!-- ═══ FINAL CTA ═══ -->
 <section class="cta-section" id="register">
   <div class="container">
     <div style="font-size:3.5rem;margin-bottom:16px">🥚</div>
@@ -1121,18 +1243,23 @@ function applyExpiredEB() {
   if (ebExpired) return;
   ebExpired = true;
 
+  // 1. Countdown box
   const cbox = document.querySelector('.countdown-box');
   if (cbox) cbox.innerHTML = '<div style="color:var(--yellow);font-family:Kanit,sans-serif;font-weight:800;font-size:1.2rem">✅ ราคาปกติมีผลแล้ว — ยังสมัครได้!</div>';
 
+  // 2. Hero badge
   const heroBadge = document.getElementById('hero-badge');
   if (heroBadge) heroBadge.textContent = '🎉 งาน 18–22 มีนาคม 2569 — สมัครได้เลย!';
 
+  // 3. Hero register button
   const heroBtn = document.getElementById('btn-hero-register');
   if (heroBtn) heroBtn.textContent = '🎟️ สมัครเลยที่ ready-go.fun';
 
+  // 4. Pricing subtitle
   const pricingSub = document.getElementById('pricing-subtitle');
   if (pricingSub) pricingSub.innerHTML = 'ราคาปกติ — สมัครได้จนถึงวันแข่งขัน <strong style="color:var(--yellow)">21–22 มีนาคม 2569</strong>';
 
+  // 5. Starter Pack: hide EB price, style normal price as main
   const starterEB = document.getElementById('starter-eb-price');
   if (starterEB) starterEB.style.display = 'none';
   const starterNormal = document.getElementById('starter-normal-price');
@@ -1140,6 +1267,7 @@ function applyExpiredEB() {
   const starterDL = document.getElementById('starter-deadline');
   if (starterDL) starterDL.textContent = 'ราคาปกติ Starter Pack';
 
+  // 6. Experience Pack: hide EB price, style normal price as main
   const expEB = document.getElementById('exp-eb-price');
   if (expEB) expEB.style.display = 'none';
   const expNormal = document.getElementById('exp-normal-price');
@@ -1147,6 +1275,7 @@ function applyExpiredEB() {
   const expDL = document.getElementById('exp-deadline');
   if (expDL) expDL.textContent = 'ราคาปกติ Experience Pack';
 
+  // 7. EB benefit highlight — update to post-EB message
   const ebHL = document.getElementById('eb-benefit-highlight');
   if (ebHL) ebHL.innerHTML = `
     <div class="benefit-highlight-icon">✅</div>
@@ -1156,6 +1285,7 @@ function applyExpiredEB() {
     </div>
     <a href="https://ready-go.fun/e/TNV2" class="btn-primary" target="_blank" style="flex-shrink:0">สมัครเลย →</a>`;
 
+  // 8. Mid-CTA strip
   const midTitle = document.getElementById('mid-cta-title');
   if (midTitle) midTitle.textContent = '🏁 สนามรอลูกอยู่ — แข่งขัน 21–22 มีนาคมนี้!';
   const midDesc = document.getElementById('mid-cta-desc');
@@ -1163,11 +1293,13 @@ function applyExpiredEB() {
   const midBtn = document.getElementById('mid-cta-btn');
   if (midBtn) midBtn.textContent = '🎟️ สมัครเลยที่ ready-go.fun';
 
+  // 9. Final CTA section
   const finalTitle = document.getElementById('final-cta-title');
   if (finalTitle) finalTitle.innerHTML = 'สมัครได้เลย! — <span>ราคาปกติ</span><br>แข่งขัน 21–22 มีนาคม 2569';
   const finalDesc = document.getElementById('final-cta-desc');
   if (finalDesc) finalDesc.textContent = 'ยังไม่สาย! สมัครได้จนถึงวันแข่ง';
 
+  // 10. Final CTA price badges
   const finalStarterAmt = document.getElementById('final-starter-amt');
   if (finalStarterAmt) finalStarterAmt.textContent = '1,190';
   const finalStarterLbl = document.getElementById('final-starter-lbl');
@@ -1183,7 +1315,10 @@ function updateCountdown() {
   const target = new Date('2026-03-17T23:59:00+07:00');
   const now = new Date();
   const diff = target - now;
-  if (diff <= 0) { applyExpiredEB(); return; }
+  if (diff <= 0) {
+    applyExpiredEB();
+    return;
+  }
   const d = Math.floor(diff / 86400000);
   const h = Math.floor((diff % 86400000) / 3600000);
   const m = Math.floor((diff % 3600000) / 60000);
@@ -1197,12 +1332,15 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 // ─── FAQ Toggle ───
-function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
 
 // ─── Scroll Reveal ───
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 </script>
