@@ -242,6 +242,30 @@
   .btn-price.outline:hover { border-color: var(--yellow); color: var(--yellow); background: transparent; }
 
 
+  /* ─── TESTIMONIALS ─── */
+  .testimonial-section { background: #f9f6f0; padding: 60px 0; }
+  .testimonial-section .section-tag { background: var(--orange); color: white; }
+  .testimonial-section .section-title { color: var(--green-dark); }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 32px;
+  }
+  .testimonial-item {
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: white;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .testimonial-item:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.13); }
+  .testimonial-item img { width: 100%; display: block; }
+  @media (max-width: 768px) {
+    .testimonial-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  }
+  @media (max-width: 480px) {
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+
   /* ─── PACKAGE BENEFITS ─── */
   /* Reward showcase */
   .reward-showcase {
@@ -832,6 +856,27 @@
     <div class="gallery-item wide g-height-280"><img src="event_mascot.jpg" alt="Mascot Show สุดน่ารัก"></div>
     <div class="gallery-item g-height-280"><img src="photo_ride1.jpg" alt="เด็กปั่น"></div>
     <div class="gallery-item g-height-280"><img src="reward_podium.jpg" alt="พิธีรับรางวัลบนโพเดียม"></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonial-section">
+<div class="container">
+  <div style="text-align:center;margin-bottom:8px"><span class="section-tag">💬 พ่อแม่บอกว่า...</span></div>
+  <h2 class="section-title" style="text-align:center;margin-top:10px">ครอบครัวที่ผ่านมาแล้ว บอกว่า...</h2>
+  <p class="section-subtitle" style="text-align:center">รีวิวจริงจากพ่อแม่ที่พาลูกมาร่วมงาน Cruzee × T&amp;B Kids</p>
+  <div class="testimonial-grid reveal">
+    <div class="testimonial-item"><img src="testimonial_1.png" alt="รีวิวจากผู้ปกครอง 1" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_2.png" alt="รีวิวจากผู้ปกครอง 2" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_3.png" alt="รีวิวจากผู้ปกครอง 3" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_4.png" alt="รีวิวจากผู้ปกครอง 4" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_5.png" alt="รีวิวจากผู้ปกครอง 5" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_6.png" alt="รีวิวจากผู้ปกครอง 6" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_7.png" alt="รีวิวจากผู้ปกครอง 7" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_8.png" alt="รีวิวจากผู้ปกครอง 8" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_9.png" alt="รีวิวจากผู้ปกครอง 9" loading="lazy"></div>
+    <div class="testimonial-item"><img src="testimonial_10.png" alt="รีวิวจากผู้ปกครอง 10" loading="lazy"></div>
   </div>
 </div>
 </section>
